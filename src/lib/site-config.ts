@@ -13,10 +13,10 @@ export const siteConfig = {
 
   // Registration deadline (ISO 8601, with timezone). Batch starts 1 Aug 2026,
   // so registration closes end of 31 Jul 2026. Bangladesh Standard Time is UTC+6.
-  registrationDeadline: '2026-07-31T23:59:59+06:00',
+  registrationDeadline: '2026-08-13T23:59:59+06:00',
 
   // Batch start date.
-  courseStartDate: '2026-08-01',
+  courseStartDate: '2026-08-15',
 
   // Pricing (shown on the page + payment section).
   price: {
