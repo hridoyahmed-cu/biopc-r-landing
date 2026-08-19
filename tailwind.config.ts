@@ -71,10 +71,28 @@ const config: Config = {
         shimmer: {
           '100%': { transform: 'translateX(100%)' },
         },
+        // Expanding ring that draws the eye to the running course card.
+        glowPulse: {
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(117, 33, 247, 0.38)' },
+          '50%': { boxShadow: '0 0 0 14px rgba(117, 33, 247, 0)' },
+        },
+        // Small horizontal nudge for the "View course" arrow.
+        nudgeX: {
+          '0%, 100%': { transform: 'translateX(0)' },
+          '50%': { transform: 'translateX(5px)' },
+        },
+        // Gentle vertical bob for the pointer above the card.
+        bobDown: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(8px)' },
+        },
       },
       animation: {
         float: 'float 6s ease-in-out infinite',
         shimmer: 'shimmer 2s infinite',
+        'glow-pulse': 'glowPulse 2.4s ease-out infinite',
+        'nudge-x': 'nudgeX 1.4s ease-in-out infinite',
+        'bob-down': 'bobDown 1.6s ease-in-out infinite',
       },
     },
   },

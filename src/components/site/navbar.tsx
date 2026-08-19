@@ -120,7 +120,7 @@ function CourseMenu({ menu }: { menu: NavMenu }) {
 
 export function Navbar({
   sections = [],
-  cta = { href: '/internship', label: 'Current Course' },
+  cta = { href: '/internship', label: 'Running Course' },
 }: NavbarProps = {}) {
   const [scrolled, setScrolled] = useState(false);
 

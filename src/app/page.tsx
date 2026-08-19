@@ -30,6 +30,7 @@ const groups = [
     eyebrow: 'Running Courses',
     heading: 'Running now',
     subtitle: 'Open cohorts you can join today.',
+    highlight: true,
   },
   {
     key: 'Previous',
@@ -39,11 +40,19 @@ const groups = [
   },
 ];
 
-function CourseCard({ course }: { course: (typeof courseCatalog)[number] }) {
+function CourseCard({
+  course,
+  highlight = false,
+}: {
+  course: (typeof courseCatalog)[number];
+  highlight?: boolean;
+}) {
   return (
     <a
       href={course.href}
-      className="surface group flex w-full flex-col rounded-3xl p-7 transition-all duration-200 hover:-translate-y-1 hover:border-accent-400 hover:shadow-card"
+      className={`surface group flex w-full flex-col rounded-3xl p-7 transition-all duration-200 hover:-translate-y-1 hover:border-accent-400 hover:shadow-card ${
+        highlight ? 'border-accent-400 animate-glow-pulse' : ''
+      }`}
     >
       <span
         className={`inline-flex w-fit items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider ${
@@ -54,7 +63,9 @@ function CourseCard({ course }: { course: (typeof courseCatalog)[number] }) {
       >
         <span
           aria-hidden
-          className={`h-1.5 w-1.5 rounded-full ${course.open ? 'bg-accent-500' : 'bg-[rgb(var(--fg-muted))]'}`}
+          className={`h-1.5 w-1.5 rounded-full ${
+            course.open ? 'bg-accent-500 animate-pulse' : 'bg-[rgb(var(--fg-muted))]'
+          }`}
         />
         {course.open ? 'Enrolling' : 'Completed'}
       </span>
@@ -85,7 +96,9 @@ function CourseCard({ course }: { course: (typeof courseCatalog)[number] }) {
           strokeLinecap="round"
           strokeLinejoin="round"
           aria-hidden="true"
-          className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
+          className={`h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 ${
+            highlight ? 'animate-nudge-x' : ''
+          }`}
         >
           <path d="M5 12h14M13 6l6 6-6 6" />
         </svg>
@@ -128,15 +141,35 @@ export default function AcademyHomePage() {
             <section key={group.key} id={group.key.toLowerCase()} className="py-14 sm:py-16">
               <div className="container-tight">
                 <SectionHeading eyebrow={group.eyebrow} title={group.heading} subtitle={group.subtitle} />
+                {group.highlight ? (
+                  <Reveal delay={0.1} className="mt-8 flex flex-col items-center">
+                    <span className="rounded-full bg-brand-gradient px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-glow">
+                      Start here
+                    </span>
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2.5}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                      className="mt-1 h-6 w-6 animate-bob-down text-accent-600"
+                    >
+                      <path d="M12 5v14M6 13l6 6 6-6" />
+                    </svg>
+                  </Reveal>
+                ) : null}
+
                 {/* A lone course would sit in a half-empty 2-col grid, so narrow and centre it. */}
                 <div
-                  className={`mx-auto mt-10 grid gap-6 ${
+                  className={`mx-auto grid gap-6 ${group.highlight ? 'mt-4' : 'mt-10'} ${
                     courses.length === 1 ? 'max-w-xl' : 'max-w-4xl sm:grid-cols-2'
                   }`}
                 >
                   {courses.map((course, i) => (
                     <Reveal key={course.href} delay={i * 0.07} className="flex">
-                      <CourseCard course={course} />
+                      <CourseCard course={course} highlight={group.highlight ?? false} />
                     </Reveal>
                   ))}
                 </div>
