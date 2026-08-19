@@ -374,32 +374,6 @@ const initPage = () => {
 
   /* ===== Registration Form with GAS Submission ===== */
   const form = document.getElementById('regForm');
-  /* ===== Post-registration WhatsApp prompt ===== */
-  const waModal = document.getElementById('waModal');
-  let waLastFocus = null;
-
-  function closeWaModal() {
-    if (!waModal || waModal.hidden) return;
-    waModal.hidden = true;
-    document.body.style.overflow = '';
-    waLastFocus?.focus();
-  }
-
-  function openWaModal() {
-    if (!waModal) return;
-    waLastFocus = document.activeElement;
-    waModal.hidden = false;
-    document.body.style.overflow = 'hidden';
-    document.getElementById('waModalJoin')?.focus();
-  }
-
-  waModal?.querySelectorAll('[data-wa-close]').forEach((el) => {
-    el.addEventListener('click', closeWaModal);
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeWaModal();
-  });
-
   const successMsg = document.getElementById('formSuccess');
   const errorMsg = document.getElementById('formErrorMsg');
   const submitBtn = document.getElementById('submitBtn');
@@ -414,6 +388,14 @@ const initPage = () => {
     university: { el: null, validate: v => v.trim().length >= 2, msg: 'Please enter your university or institution.' },
     academicLevel: { el: null, validate: v => v !== '', msg: 'Please select your academic level.' },
     paymentMethod: { el: null, validate: v => v !== '', msg: 'Please select a payment method.' },
+    amountPaid: {
+      el: null,
+      validate: v => {
+        const num = Number(v.trim());
+        return !isNaN(num) && num > 0;
+      },
+      msg: 'Please enter the amount of money you sent (e.g. 5000, or 4000 with coupon).'
+    },
     transactionId: { el: null, validate: v => v.trim().length >= 4, msg: 'Please enter your transaction ID.' },
   };
 
@@ -425,6 +407,36 @@ const initPage = () => {
     el.addEventListener('input', () => {
       if (el.classList.contains('error')) validateField(name);
     });
+  });
+
+  // Dynamic fee suggestion on academic level change
+  const academicLevelSelect = document.getElementById('academicLevel');
+  const amountPaidInput = document.getElementById('amountPaid');
+  const amountHintEl = document.getElementById('amountHint');
+
+  function updateSuggestedAmount(hasValidCoupon = false) {
+    if (!amountPaidInput) return;
+    const isProfessional = ['researcher', 'postdoc'].includes(academicLevelSelect?.value);
+    const standardFee = isProfessional ? 10000 : 5000;
+    const discountedFee = isProfessional ? 9000 : 4000;
+    const targetFee = hasValidCoupon ? discountedFee : standardFee;
+
+    if (!amountPaidInput.value || amountPaidInput.value === '5000' || amountPaidInput.value === '4000' || amountPaidInput.value === '10000' || amountPaidInput.value === '9000') {
+      amountPaidInput.value = targetFee;
+    }
+
+    if (amountHintEl) {
+      if (hasValidCoupon) {
+        amountHintEl.innerHTML = `<span style="color: #059669; font-weight: 700;">🎉 ৳1,000 coupon discount applied! Send ৳${targetFee.toLocaleString()}</span>`;
+      } else {
+        amountHintEl.textContent = `Student: ৳5,000 | With coupon: ৳4,000 | Professional: ৳10,000`;
+      }
+    }
+  }
+
+  academicLevelSelect?.addEventListener('change', () => {
+    const isCouponApplied = couponFeedback && !couponFeedback.hidden && couponFeedback.classList.contains('valid');
+    updateSuggestedAmount(isCouponApplied);
   });
 
   function validateField(name) {
@@ -460,11 +472,11 @@ const initPage = () => {
 
   // Category descriptions & patterns for instant fallback recognition
   const CATEGORY_MAP = {
-    'BPC-CORE': { category: 'BioPC Core Team', discount: 'Core Team Privilege Grant (100% Core Waiver)' },
-    'BPC-WS': { category: 'BioPC Workshop', discount: 'Workshop Attendee Discount' },
-    'BBO3': { category: 'Biology and Bioinformatics Olympiad 3.0', discount: 'Olympiad 3.0 Participant Privilege' },
-    'BPC-AMB': { category: 'BioPC Campus Ambassador', discount: 'Campus Ambassador Privilege Access' },
-    'BPC-GM': { category: 'BioPC General Member', discount: 'General Member Cohort Waiver' }
+    'BPC-CORE': { category: 'BioPC Core Team', discount: '৳1,000 Core Partner Discount' },
+    'BPC-WS': { category: 'BioPC Workshop', discount: '৳1,000 Workshop Attendee Discount' },
+    'BBO3': { category: 'Biology and Bioinformatics Olympiad 3.0', discount: '৳1,000 Olympiad 3.0 Privilege Discount' },
+    'BPC-AMB': { category: 'BioPC Campus Ambassador', discount: '৳1,000 Campus Ambassador Privilege Discount' },
+    'BPC-GM': { category: 'BioPC General Member', discount: '৳1,000 General Member Cohort Discount' }
   };
 
   // Helper for local redeemed coupon tracking
@@ -485,6 +497,20 @@ const initPage = () => {
         localStorage.setItem('bri_used_coupons', JSON.stringify(used));
       }
     } catch (e) { }
+  }
+
+  function applyValidCouponUI(category, customDiscountText) {
+    updateSuggestedAmount(true);
+    const catLabel = category ? `<strong>[${category}]</strong> ` : '';
+    couponFeedback.className = 'coupon-feedback valid';
+    couponFeedback.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${catLabel}<strong>Coupon Applied!</strong> ৳1,000 discount applied — Please send <strong>৳4,000</strong> (Student) / <strong>৳9,000</strong> (Professional).`;
+
+    // Clear amount field error if present
+    if (amountPaidInput) {
+      amountPaidInput.classList.remove('error');
+      const amountErr = document.getElementById('amountPaid-error');
+      if (amountErr) amountErr.textContent = '';
+    }
   }
 
   async function checkCoupon() {
@@ -527,9 +553,7 @@ const initPage = () => {
         if (resData && typeof resData.valid !== 'undefined') {
           gasVerified = true;
           if (resData.valid === true) {
-            const catLabel = resData.category ? `<strong>[${resData.category}]</strong> ` : '';
-            couponFeedback.className = 'coupon-feedback valid';
-            couponFeedback.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${catLabel}<strong>Coupon Applied!</strong> ${resData.discount || 'Verified single-use code.'}`;
+            applyValidCouponUI(resData.category, resData.discount);
           } else if (resData.status === 'ALREADY_USED') {
             markCouponAsRedeemedLocally(rawCode);
             couponFeedback.className = 'coupon-feedback used';
@@ -556,8 +580,7 @@ const initPage = () => {
       }
 
       if (matchedCategory) {
-        couponFeedback.className = 'coupon-feedback valid';
-        couponFeedback.innerHTML = `<i class="fa-solid fa-circle-check"></i> <strong>[${matchedCategory.category}]</strong> ${matchedCategory.discount} (Verified)`;
+        applyValidCouponUI(matchedCategory.category, matchedCategory.discount);
       } else {
         couponFeedback.className = 'coupon-feedback invalid';
         couponFeedback.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> <strong>Invalid Code:</strong> The coupon code "${rawCode}" is not recognized. Please check and try again.`;
@@ -650,6 +673,7 @@ const initPage = () => {
         academicLevel: document.getElementById('academicLevel')?.value,
         skillLevel: document.getElementById('skillLevel')?.value,
         paymentMethod: document.getElementById('paymentMethod')?.value,
+        amountPaid: document.getElementById('amountPaid')?.value.trim() || '',
         couponCode: document.getElementById('couponCode')?.value.trim().toUpperCase() || '',
         transactionId: document.getElementById('transactionId')?.value.trim(),
         screenshotData: screenshotBase64,
@@ -680,10 +704,7 @@ const initPage = () => {
           form.reset();
           if (fileSelectedName) fileSelectedName.hidden = true;
           if (submitText) submitText.textContent = 'Submitted ✓';
-          setTimeout(() => {
-            successMsg?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            openWaModal();
-          }, 100);
+          openWhatsAppModal();
         } else {
           throw new Error(result.message || 'Submission failed');
         }
@@ -698,7 +719,7 @@ const initPage = () => {
           if (submitText) submitText.textContent = 'Submitted ✓';
           form.reset();
           if (fileSelectedName) fileSelectedName.hidden = true;
-          openWaModal();
+          openWhatsAppModal();
           console.warn('GAS endpoint not configured. Set GAS_ENDPOINT in script.js after deploying the Google Apps Script.');
         } else {
           if (errorMsg) errorMsg.hidden = false;
@@ -712,6 +733,40 @@ const initPage = () => {
     });
   }
 
+  /* ===== Post-Registration WhatsApp Modal ===== */
+  const whatsappModal = document.getElementById('whatsappModal');
+  const whatsappModalClose = document.getElementById('whatsappModalClose');
+  const whatsappLaterBtn = document.getElementById('whatsappLaterBtn');
+  const whatsappModalBackdrop = document.getElementById('whatsappModalBackdrop');
+
+  function openWhatsAppModal() {
+    if (!whatsappModal) return;
+    whatsappModal.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeWhatsAppModal() {
+    if (!whatsappModal) return;
+    whatsappModal.hidden = true;
+    document.body.style.overflow = '';
+    const successMsg = document.getElementById('formSuccess');
+    if (successMsg && !successMsg.hidden) {
+      setTimeout(() => {
+        successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 100);
+    }
+  }
+
+  whatsappModalClose?.addEventListener('click', closeWhatsAppModal);
+  whatsappLaterBtn?.addEventListener('click', closeWhatsAppModal);
+  whatsappModalBackdrop?.addEventListener('click', closeWhatsAppModal);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && whatsappModal && !whatsappModal.hidden) {
+      closeWhatsAppModal();
+    }
+  });
+
   /* ===== Newsletter Form ===== */
   const newsletterForm = document.getElementById('newsletterForm');
   const newsletterSuccess = document.getElementById('newsletterSuccess');
@@ -723,6 +778,99 @@ const initPage = () => {
       newsletterForm.reset();
     }
   });
+
+  /* ===== Smooth Custom Round Shape Cursor ===== */
+  const cursorDot = document.getElementById('cursorDot');
+  const cursorRing = document.getElementById('cursorRing');
+
+  if (cursorDot && cursorRing && window.matchMedia('(pointer: fine)').matches) {
+    let mouseX = -100;
+    let mouseY = -100;
+    let ringX = -100;
+    let ringY = -100;
+    let isHovering = false;
+    let isClicking = false;
+    let isVisible = false;
+
+    // Track mouse position immediately for the dot
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+
+      if (!isVisible) {
+        isVisible = true;
+        cursorDot.classList.remove('cursor-hidden');
+        cursorRing.classList.remove('cursor-hidden');
+        ringX = mouseX;
+        ringY = mouseY;
+      }
+
+      const dotScale = isHovering ? 1.4 : (isClicking ? 0.6 : 1);
+      cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%) scale(${dotScale})`;
+    }, { passive: true });
+
+    document.addEventListener('mouseenter', () => {
+      if (isVisible) {
+        cursorDot.classList.remove('cursor-hidden');
+        cursorRing.classList.remove('cursor-hidden');
+      }
+    });
+
+    document.addEventListener('mouseleave', () => {
+      cursorDot.classList.add('cursor-hidden');
+      cursorRing.classList.add('cursor-hidden');
+    });
+
+    window.addEventListener('mousedown', () => {
+      isClicking = true;
+      cursorRing.classList.add('cursor-active');
+      cursorDot.classList.add('cursor-active');
+      cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%) scale(0.6)`;
+    });
+
+    window.addEventListener('mouseup', () => {
+      isClicking = false;
+      cursorRing.classList.remove('cursor-active');
+      cursorDot.classList.remove('cursor-active');
+      const dotScale = isHovering ? 1.4 : 1;
+      cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%) scale(${dotScale})`;
+    });
+
+    // Smooth trailing lerp loop for the outer ring
+    const renderCursorRing = () => {
+      if (isVisible) {
+        ringX += (mouseX - ringX) * 0.18;
+        ringY += (mouseY - ringY) * 0.18;
+        const ringScale = isClicking ? 0.85 : 1;
+        cursorRing.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%) scale(${ringScale})`;
+      }
+      requestAnimationFrame(renderCursorRing);
+    };
+    requestAnimationFrame(renderCursorRing);
+
+    // Interactive element hover detection
+    const interactiveSelectors = 'a, button, input, select, textarea, label, [role="button"], [role="tab"], .module-head, .accordion-header, .tool-card, .file-drop-zone, .timeline-node, .theme-toggle';
+
+    document.addEventListener('mouseover', (e) => {
+      const target = e.target.closest(interactiveSelectors);
+      if (target) {
+        isHovering = true;
+        cursorRing.classList.add('cursor-hover');
+        cursorDot.classList.add('cursor-hover');
+        cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%) scale(1.4)`;
+      }
+    });
+
+    document.addEventListener('mouseout', (e) => {
+      const target = e.target.closest(interactiveSelectors);
+      if (target) {
+        isHovering = false;
+        cursorRing.classList.remove('cursor-hover');
+        cursorDot.classList.remove('cursor-hover');
+        cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%) scale(1)`;
+      }
+    });
+  }
 
 };
 

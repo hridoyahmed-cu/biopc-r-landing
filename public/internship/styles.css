@@ -2681,6 +2681,87 @@ body.theme-dark .payment-alert {
   margin-top: 2px;
 }
 
+/* Fee Breakdown Banner */
+.fee-breakdown-banner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.fee-pill {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 0.95rem;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.fee-pill:hover {
+  transform: translateY(-2px);
+}
+
+.fee-pill.student-fee {
+  border-left: 4px solid var(--primary-start);
+}
+
+.fee-pill.coupon-fee {
+  border-left: 4px solid #10B981;
+  background: linear-gradient(135deg, var(--bg-white) 0%, rgba(16, 185, 129, 0.08) 100%);
+}
+
+.fee-pill.pro-fee {
+  border-left: 4px solid #F59E0B;
+}
+
+.fee-type {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #64748B;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+body.theme-dark .fee-type {
+  color: #94A3B8;
+}
+
+.fee-amount {
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: var(--text-heading);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.fee-amount.highlight {
+  color: #059669;
+}
+
+body.theme-dark .fee-amount.highlight {
+  color: #34D399;
+}
+
+.fee-amount small {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #059669;
+  background: rgba(16, 185, 129, 0.14);
+  padding: 2px 6px;
+  border-radius: 6px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+body.theme-dark .fee-amount small {
+  background: rgba(16, 185, 129, 0.24);
+  color: #34D399;
+}
+
 .payment-instructions ol {
   list-style: none;
   counter-reset: payStep;
@@ -2967,6 +3048,18 @@ body.theme-dark .coupon-feedback.checking {
   line-height: 1.3;
 }
 
+.field-hint {
+  display: block;
+  font-size: 0.77rem;
+  color: #64748B;
+  margin-top: 4px;
+  line-height: 1.35;
+}
+
+body.theme-dark .field-hint {
+  color: #94A3B8;
+}
+
 /* Checkbox */
 .checkbox-group {
   margin: 6px 0 8px;
@@ -3070,13 +3163,383 @@ body.theme-dark .coupon-feedback.checking {
   align-items: center;
 }
 
-.form-success {
+/* ===== Form Success Card & WhatsApp Next Step ===== */
+.form-success-card {
+  margin-top: 20px;
+  background: linear-gradient(135deg, rgba(22, 163, 74, 0.08), rgba(37, 211, 102, 0.05));
+  border: 1.5px solid rgba(34, 197, 94, 0.35);
+  border-radius: 1.25rem;
+  padding: 24px;
+  box-shadow: 0 10px 25px -5px rgba(22, 163, 74, 0.12);
+  animation: fadeInSuccess 0.4s ease-out;
+  text-align: left;
+}
+
+@keyframes fadeInSuccess {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-success-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding-bottom: 18px;
+  border-bottom: 1px dashed rgba(34, 197, 94, 0.25);
+  color: var(--text-heading);
+}
+
+.form-success-header i {
+  font-size: 1.75rem;
+  color: #16A34A;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.form-success-header strong {
+  display: block;
+  font-size: 1.05rem;
+  color: #16A34A;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  margin-bottom: 3px;
+}
+
+.form-success-header p {
+  font-size: 0.92rem;
+  color: var(--text-body);
+  margin: 0;
+}
+
+.form-success-whatsapp {
+  margin-top: 18px;
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 20px;
   text-align: center;
-  color: var(--alert-green);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.whatsapp-step-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(245, 158, 11, 0.12);
+  color: #B45309;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.whatsapp-step-badge i {
+  font-size: 0.85rem;
+  color: #D97706;
+}
+
+.form-whatsapp-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-heading);
+  margin-bottom: 8px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.form-whatsapp-desc {
+  font-size: 0.9rem;
+  color: var(--text-body);
+  line-height: 1.55;
+  max-width: 520px;
+  margin: 0 auto 16px;
+}
+
+.form-whatsapp-actions {
+  display: flex;
+  justify-content: center;
+}
+
+/* WhatsApp Primary Button */
+.btn-whatsapp-join {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #25D366 0%, #1EBE5D 100%);
+  color: #FFFFFF !important;
+  font-size: 1rem;
   font-weight: 700;
-  margin-top: 14px;
-  font-size: 0.95rem;
-  line-height: 1.5;
+  padding: 13px 28px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  transition: all 0.25s ease;
+  text-decoration: none;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.btn-whatsapp-join i {
+  font-size: 1.25rem;
+}
+
+.btn-whatsapp-join:hover {
+  background: linear-gradient(135deg, #1ebe5d 0%, #17a34e 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.55);
+}
+
+.btn-whatsapp-join:active {
+  transform: translateY(0);
+}
+
+/* ===== WhatsApp Modal Overlay ===== */
+.whatsapp-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.whatsapp-modal-overlay[hidden] {
+  display: none !important;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.whatsapp-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.whatsapp-modal-container {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 1.75rem;
+  padding: 36px 30px 30px;
+  text-align: center;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  animation: modalPopIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+@keyframes modalPopIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.whatsapp-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: #64748B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.2s ease;
+}
+
+.whatsapp-modal-close:hover {
+  background: var(--accent-tint);
+  color: var(--text-heading);
+  transform: rotate(90deg);
+}
+
+.whatsapp-modal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(245, 158, 11, 0.12);
+  color: #D97706;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.whatsapp-modal-badge i {
+  color: #F59E0B;
+}
+
+.whatsapp-icon-pulse {
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 2.5rem;
+  box-shadow: 0 12px 28px rgba(37, 211, 102, 0.4);
+  position: relative;
+  animation: pulseGlow 2.5s infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 12px 28px rgba(37, 211, 102, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 16px 36px rgba(37, 211, 102, 0.65);
+  }
+}
+
+.whatsapp-modal-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-heading);
+  margin-bottom: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.whatsapp-modal-desc {
+  font-size: 0.96rem;
+  color: var(--text-body);
+  line-height: 1.6;
+  max-width: 440px;
+  margin: 0 auto 24px;
+}
+
+.whatsapp-modal-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.whatsapp-modal-actions .btn-whatsapp-join {
+  width: 100%;
+  padding: 15px 24px;
+  font-size: 1.05rem;
+}
+
+.btn-whatsapp-later {
+  background: transparent;
+  border: none;
+  color: #64748B;
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-family: 'Inter', sans-serif;
+}
+
+.btn-whatsapp-later:hover {
+  color: var(--text-heading);
+}
+
+.whatsapp-modal-footer-note {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: #64748B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* Dark mode adjustments for WhatsApp modal and success card */
+body.theme-dark .form-success-card {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.12), rgba(6, 182, 212, 0.08));
+  border-color: rgba(74, 222, 128, 0.3);
+}
+
+body.theme-dark .form-success-header strong {
+  color: #4ADE80;
+}
+
+body.theme-dark .form-success-header i {
+  color: #4ADE80;
+}
+
+body.theme-dark .form-success-whatsapp {
+  background: var(--surface-2);
+  border-color: var(--border);
+}
+
+body.theme-dark .whatsapp-modal-container {
+  background: #0D1527;
+  border-color: rgba(148, 163, 184, 0.25);
+  box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+body.theme-dark .whatsapp-modal-close {
+  background: rgba(255, 255, 255, 0.05);
+  color: #94A3B8;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.theme-dark .whatsapp-modal-close:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #F8FAFC;
+}
+
+body.theme-dark .whatsapp-step-badge,
+body.theme-dark .whatsapp-modal-badge {
+  background: rgba(245, 158, 11, 0.18);
+  color: #FBBF24;
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+body.theme-dark .btn-whatsapp-later {
+  color: #94A3B8;
+}
+
+body.theme-dark .btn-whatsapp-later:hover {
+  color: #F8FAFC;
+}
+
+body.theme-dark .whatsapp-modal-footer-note {
+  border-top-color: rgba(255, 255, 255, 0.08);
+  color: #94A3B8;
 }
 
 .form-error-msg {
@@ -3474,120 +3937,73 @@ body.theme-dark .site-footer {
   }
 }
 
-/* ===== Post-registration WhatsApp prompt ===== */
-.wa-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
+/* ===== Custom Round Shape Cursor ===== */
+@media (pointer: fine) {
+  .custom-cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(135deg, var(--primary-start), var(--primary-end));
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    will-change: transform;
+    transition: opacity 0.25s ease, background 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.6);
+  }
+
+  .custom-cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 36px;
+    height: 36px;
+    border: 1.8px solid var(--primary-start);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99998;
+    will-change: transform;
+    transition: opacity 0.25s ease, width 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), height 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+    background: rgba(99, 102, 241, 0.04);
+    box-shadow: 0 0 16px rgba(99, 102, 241, 0.16);
+  }
+
+  /* Hover State over links, buttons and interactive controls */
+  .custom-cursor-ring.cursor-hover {
+    width: 54px;
+    height: 54px;
+    border-color: var(--primary-end);
+    background: rgba(99, 102, 241, 0.12);
+    backdrop-filter: blur(1px);
+    box-shadow: 0 0 24px rgba(99, 102, 241, 0.38);
+  }
+
+  .custom-cursor-dot.cursor-hover {
+    background: var(--primary-end);
+    box-shadow: 0 0 16px rgba(34, 211, 238, 0.85);
+  }
+
+  /* Active Click State */
+  .custom-cursor-ring.cursor-active {
+    width: 28px;
+    height: 28px;
+    background: rgba(99, 102, 241, 0.22);
+    border-color: var(--primary-start);
+    box-shadow: 0 0 18px rgba(99, 102, 241, 0.5);
+  }
+
+  /* Hidden State (When cursor leaves browser window) */
+  .custom-cursor-dot.cursor-hidden,
+  .custom-cursor-ring.cursor-hidden {
+    opacity: 0;
+  }
 }
 
-.wa-modal[hidden] {
-  display: none;
+@media (pointer: coarse) {
+  .custom-cursor-dot,
+  .custom-cursor-ring {
+    display: none !important;
+  }
 }
-
-.wa-modal-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(5, 8, 22, 0.62);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-}
-
-.wa-modal-card {
-  position: relative;
-  width: 100%;
-  max-width: 26rem;
-  padding: 2rem 1.75rem;
-  text-align: center;
-  background: var(--surface-3);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: 0 24px 60px rgba(2, 6, 23, 0.35);
-  animation: wa-modal-in 0.28s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-@keyframes wa-modal-in {
-  from { opacity: 0; transform: translateY(14px) scale(0.97); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .wa-modal-card { animation: none; }
-}
-
-.wa-modal-close {
-  position: absolute;
-  top: 0.6rem;
-  right: 0.75rem;
-  width: 2rem;
-  height: 2rem;
-  font-size: 1.5rem;
-  line-height: 1;
-  color: var(--text-body);
-  background: none;
-  border: 0;
-  border-radius: 50%;
-  opacity: 0.55;
-  cursor: pointer;
-}
-
-.wa-modal-close:hover { opacity: 1; background: var(--bg-tint); }
-
-.wa-modal-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 3.5rem;
-  height: 3.5rem;
-  margin: 0 auto;
-  font-size: 1.75rem;
-  color: #25d366;
-  background: rgba(37, 211, 102, 0.14);
-  border-radius: 50%;
-}
-
-.wa-modal-kicker {
-  margin-top: 1rem;
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--primary-start);
-}
-
-.wa-modal-title {
-  margin-top: 0.4rem;
-  font-size: 1.45rem;
-}
-
-.wa-modal-text {
-  margin-top: 0.7rem;
-  font-size: 0.92rem;
-  line-height: 1.6;
-  color: var(--text-body);
-  opacity: 0.85;
-}
-
-.wa-modal-join {
-  width: 100%;
-  margin-top: 1.4rem;
-}
-
-.wa-modal-later {
-  width: 100%;
-  margin-top: 0.75rem;
-  padding: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--text-body);
-  background: none;
-  border: 0;
-  opacity: 0.7;
-  cursor: pointer;
-}
-
-.wa-modal-later:hover { opacity: 1; color: var(--primary-start); }

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Mounted under BioPC Academy at /internship/ so the relative asset
+  <!-- Served under BioPC Academy at /internship/ so the relative asset
        paths (styles.css, script.js, image/...) keep resolving. -->
   <base href="/internship/">
   <title>BioPC Academy | Bioinformatics Research Internship 4.0</title>
@@ -56,6 +56,10 @@
 </head>
 
 <body>
+
+  <!-- Custom Round Shape Cursor -->
+  <div class="custom-cursor-dot cursor-hidden" id="cursorDot" aria-hidden="true"></div>
+  <div class="custom-cursor-ring cursor-hidden" id="cursorRing" aria-hidden="true"></div>
 
   <!-- Scroll Progress Bar -->
   <div id="scrollProgress" class="scroll-progress" role="progressbar" aria-label="Page scroll progress"></div>
@@ -139,7 +143,7 @@
             <strong class="professional-price">৳10,000</strong>
           </div>
         </div>
-        <p class="pricing-note">Standard rate for professionals and working participants</p>
+        <p class="pricing-note">Standard student fee: ৳5,000 (৳4,000 with coupon code) • Professional: ৳10,000</p>
         <div class="hero-ctas">
           <a href="#register" class="btn btn-primary">Register Now</a>
           <a href="#curriculum" class="btn btn-secondary">Explore Curriculum</a>
@@ -1010,7 +1014,7 @@
 
         <article class="instructor-card fade-in">
           <div class="card-hero">
-            <div class="image-placeholder">MH</div>
+            <img src="image/Md. Muhareb Hossain.jpg" alt="Md. Muhareb Hossain">
             <span class="card-badge">Instructor</span>
           </div>
           <div class="card-info">
@@ -1211,24 +1215,43 @@
           <button class="accordion-header">What are the course fees? <span class="chevron">⌄</span></button>
           <div class="accordion-body">
             <p>Students pay a discounted rate of ৳5,000 (50% off the standard ৳10,000), while professional or working
-              participants pay ৳10,000.</p>
+              participants pay ৳10,000. If you apply a valid coupon or referral code, you receive an additional
+              <strong>৳1,000 discount</strong>, reducing the student fee to <strong>৳4,000</strong>.
+            </p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">How does the coupon discount work, and how much money do I send? <span
+              class="chevron">⌄</span></button>
+          <div class="accordion-body">
+            <p>When you enter a valid coupon code (e.g. from Olympiad 3.0, workshop, campus ambassadors, or core
+              partners) and click <strong>"Apply Code"</strong>, you get an instant <strong>৳1,000 discount</strong>:
+              <br>• <strong>Student Regular Fee:</strong> ৳5,000 &rarr; <strong>With Coupon:</strong>
+              <strong>৳4,000</strong> (Send Money ৳4,000)
+              <br>• <strong>Professional Rate:</strong> ৳10,000 &rarr; <strong>With Coupon:</strong>
+              <strong>৳9,000</strong> (Send Money ৳9,000)
+              <br>Send the exact amount via <strong>"Send Money"</strong>, enter that number in the <strong>"Amount Sent
+                (BDT / ৳)"</strong> field, and submit your Transaction ID and screenshot.
+            </p>
           </div>
         </div>
         <div class="accordion-item">
           <button class="accordion-header">How do I register and pay? <span class="chevron">⌄</span></button>
           <div class="accordion-body">
-            <p>Go to the "Complete Your Registration" section, send the registration fee via <strong>"Send Money" (সেন্ড
-                মানি)</strong> to one of our personal bKash, Nagad, or Rocket numbers listed there, then fill in the
-              form with your Transaction ID and a transaction screenshot. Our team verifies the payment and confirms
-              your seat by email.</p>
+            <p>Go to the "Complete Your Registration" section, send the applicable registration fee
+              (<strong>৳5,000</strong> for regular students, <strong>৳4,000</strong> if using an approved ৳1,000-off
+              coupon code, or <strong>৳10,000</strong> for professionals) via <strong>"Send Money" (সেন্ড
+                মানি)</strong> to our personal bKash, Nagad, or Rocket number (<strong>01622488559</strong>). Then fill in the form with your
+              <strong>Amount Sent (৳)</strong>, <strong>Transaction ID (TrxID)</strong>, coupon code (if applicable),
+              and transaction screenshot. Our team verifies the payment and confirms your seat by email within 24 hours.
+            </p>
           </div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-header">What is the refund/cancellation policy? <span
+          <button class="accordion-header">What is the refund policy? <span
               class="chevron">⌄</span></button>
           <div class="accordion-body">
-            <p>Refund requests are accepted only up to 3 days before the cohort start date; after that, fees are
-              non-refundable. Contact biopc.research@gmail.com for the specific terms.</p>
+            <p><strong>There is strictly no refund.</strong> All registration fees and payments are non-refundable once submitted. Please review the program details, curriculum, and schedule carefully before completing your registration.</p>
           </div>
         </div>
       </div>
@@ -1370,13 +1393,24 @@
           </div>
         </div>
 
+        <!-- Fee Breakdown Pills -->
+        <div class="fee-breakdown-banner">
+          <div class="fee-pill student-fee">
+            <span class="fee-type"><i class="fa-solid fa-graduation-cap"></i> Student Rate</span>
+            <span class="fee-amount">৳5,000</span>
+          </div>
+          <div class="fee-pill coupon-fee">
+            <span class="fee-type"><i class="fa-solid fa-ticket"></i> With Coupon Code</span>
+            <span class="fee-amount highlight">৳4,000 <small>৳1,000 OFF</small></span>
+          </div>
+          <div class="fee-pill pro-fee">
+            <span class="fee-type"><i class="fa-solid fa-briefcase"></i> Professional Rate</span>
+            <span class="fee-amount">৳10,000</span>
+          </div>
+        </div>
+
         <div class="payment-instructions">
           <ol>
-            <li>
-              <strong>bKash Personal (Send Money)</strong><br>
-              <span>01855310554</span><br>
-              <em>Use "Send Money" to this personal bKash number, then save your Transaction ID.</em>
-            </li>
             <li>
               <strong>bKash / Nagad / Rocket Personal (Send Money)</strong><br>
               <span>01622488559</span><br>
@@ -1384,7 +1418,8 @@
                 ID.</em>
             </li>
           </ol>
-          <p class="payment-note">After sending money, enter your <strong>Transaction ID (TrxID)</strong> and upload a
+          <p class="payment-note">After sending money, enter the <strong>Amount Sent (৳)</strong>, your
+            <strong>Transaction ID (TrxID)</strong>, and upload a
             <strong>screenshot of the transaction confirmation</strong> below. We verify and confirm your seat via
             email.
           </p>
@@ -1493,8 +1528,15 @@
           <div class="coupon-feedback" id="couponFeedback" hidden aria-live="polite"></div>
         </div>
 
-        <!-- Transaction ID (Full width) -->
-        <div class="form-group form-col-full">
+        <!-- Amount Sent & Transaction ID (2 columns) -->
+        <div class="form-group">
+          <label for="amountPaid" class="form-label">Amount Sent (BDT / ৳) <span class="required-star">*</span></label>
+          <input type="number" id="amountPaid" name="amountPaid" required min="1" step="1"
+            placeholder="e.g. 5000 (or 4000 with coupon)" autocomplete="off">
+          <span class="field-hint" id="amountHint">Student: ৳5,000 | With Coupon: ৳4,000 | Professional: ৳10,000</span>
+          <span class="field-error" id="amountPaid-error" aria-live="polite"></span>
+        </div>
+        <div class="form-group">
           <label for="transactionId" class="form-label">Transaction ID (TrxID) <span
               class="required-star">*</span></label>
           <input type="text" id="transactionId" name="transactionId" required
@@ -1534,8 +1576,33 @@
             <span id="submitSpinner" class="submit-spinner" hidden aria-hidden="true"><i
                 class="fa-solid fa-circle-notch fa-spin"></i></span>
           </button>
-          <p class="form-success" id="formSuccess" hidden role="alert">✓ Registration submitted successfully! We will
-            verify your payment and email confirmation within 24 hours.</p>
+          <!-- Form Success Card with WhatsApp Step -->
+          <div class="form-success-card" id="formSuccess" hidden role="alert">
+            <div class="form-success-header">
+              <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+              <div>
+                <strong>Registration submitted successfully!</strong>
+                <p>We will verify your payment and email confirmation within 24 hours.</p>
+              </div>
+            </div>
+
+            <div class="form-success-whatsapp">
+              <div class="whatsapp-step-badge">
+                <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                <span>IMPORTANT — ONE MORE STEP</span>
+              </div>
+              <h4 class="form-whatsapp-title">Join the WhatsApp group</h4>
+              <p class="form-whatsapp-desc">Class links, schedule changes, materials and announcements are shared only
+                in the WhatsApp group. Your registration is not complete until you join.</p>
+              <div class="form-whatsapp-actions">
+                <a href="https://chat.whatsapp.com/JMlvfDf3KpE0gh96PUZoza?s=cl&p=i&mlu=0&ilr=0" target="_blank"
+                  rel="noopener noreferrer" class="btn btn-whatsapp-join">
+                  <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                  <span>• Join the WhatsApp group</span>
+                </a>
+              </div>
+            </div>
+          </div>
           <p class="form-error-msg" id="formErrorMsg" hidden role="alert">Something went wrong. Please check your inputs
             or email us directly at biopc.research@gmail.com</p>
           <p class="form-help">Questions or payment assistance? Email <a
@@ -1651,24 +1718,42 @@
         Academy</a>. All rights reserved.</p>
   </footer>
 
-  <!-- Post-registration prompt: class links and materials are shared only in the group. -->
-  <div class="wa-modal" id="waModal" hidden role="dialog" aria-modal="true" aria-labelledby="waModalTitle">
-    <div class="wa-modal-backdrop" data-wa-close></div>
-    <div class="wa-modal-card" role="document">
-      <button type="button" class="wa-modal-close" data-wa-close aria-label="Close">&times;</button>
-      <div class="wa-modal-icon" aria-hidden="true"><i class="fa-brands fa-whatsapp"></i></div>
-      <p class="wa-modal-kicker">Important &mdash; one more step</p>
-      <h3 class="wa-modal-title" id="waModalTitle">Join the WhatsApp group</h3>
-      <p class="wa-modal-text">
-        Class links, schedule changes, materials and announcements are shared
-        <strong>only in the WhatsApp group</strong>. Your registration is not complete until you join.
+  <!-- ============ POST-REGISTRATION WHATSAPP MODAL ============ -->
+  <div class="whatsapp-modal-overlay" id="whatsappModal" hidden role="dialog" aria-modal="true" aria-labelledby="whatsappModalTitle">
+    <div class="whatsapp-modal-backdrop" id="whatsappModalBackdrop"></div>
+    <div class="whatsapp-modal-container">
+      <button class="whatsapp-modal-close" id="whatsappModalClose" aria-label="Close modal">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+
+      <div class="whatsapp-modal-badge">
+        <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+        <span>IMPORTANT — ONE MORE STEP</span>
+      </div>
+
+      <div class="whatsapp-icon-pulse">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+      </div>
+
+      <h3 class="whatsapp-modal-title" id="whatsappModalTitle">Join the WhatsApp group</h3>
+
+      <p class="whatsapp-modal-desc">
+        Class links, schedule changes, materials and announcements are shared only in the WhatsApp group. Your registration is not complete until you join.
       </p>
-      <a class="btn btn-primary wa-modal-join" id="waModalJoin"
-        href="https://chat.whatsapp.com/JMlvfDf3KpE0gh96PUZoza?s=cl&amp;p=i&amp;mlu=0&amp;ilr=0"
-        target="_blank" rel="noopener noreferrer">
-        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Join the WhatsApp group
-      </a>
-      <button type="button" class="wa-modal-later" data-wa-close>I&rsquo;ll join later</button>
+
+      <div class="whatsapp-modal-actions">
+        <a href="https://chat.whatsapp.com/JMlvfDf3KpE0gh96PUZoza?s=cl&p=i&mlu=0&ilr=0" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp-join" id="whatsappJoinBtn">
+          <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+          <span>• Join the WhatsApp group</span>
+        </a>
+        <button type="button" class="btn-whatsapp-later" id="whatsappLaterBtn">
+          I'll join later
+        </button>
+      </div>
+
+      <div class="whatsapp-modal-footer-note">
+        <i class="fa-solid fa-shield-halved" aria-hidden="true"></i> BioPC Academy BRI 4.0 Cohort Group
+      </div>
     </div>
   </div>
 
