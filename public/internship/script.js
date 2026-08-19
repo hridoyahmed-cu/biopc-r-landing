@@ -374,6 +374,32 @@ const initPage = () => {
 
   /* ===== Registration Form with GAS Submission ===== */
   const form = document.getElementById('regForm');
+  /* ===== Post-registration WhatsApp prompt ===== */
+  const waModal = document.getElementById('waModal');
+  let waLastFocus = null;
+
+  function closeWaModal() {
+    if (!waModal || waModal.hidden) return;
+    waModal.hidden = true;
+    document.body.style.overflow = '';
+    waLastFocus?.focus();
+  }
+
+  function openWaModal() {
+    if (!waModal) return;
+    waLastFocus = document.activeElement;
+    waModal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    document.getElementById('waModalJoin')?.focus();
+  }
+
+  waModal?.querySelectorAll('[data-wa-close]').forEach((el) => {
+    el.addEventListener('click', closeWaModal);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeWaModal();
+  });
+
   const successMsg = document.getElementById('formSuccess');
   const errorMsg = document.getElementById('formErrorMsg');
   const submitBtn = document.getElementById('submitBtn');
@@ -656,6 +682,7 @@ const initPage = () => {
           if (submitText) submitText.textContent = 'Submitted ✓';
           setTimeout(() => {
             successMsg?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            openWaModal();
           }, 100);
         } else {
           throw new Error(result.message || 'Submission failed');
@@ -671,6 +698,7 @@ const initPage = () => {
           if (submitText) submitText.textContent = 'Submitted ✓';
           form.reset();
           if (fileSelectedName) fileSelectedName.hidden = true;
+          openWaModal();
           console.warn('GAS endpoint not configured. Set GAS_ENDPOINT in script.js after deploying the Google Apps Script.');
         } else {
           if (errorMsg) errorMsg.hidden = false;

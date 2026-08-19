@@ -3473,3 +3473,121 @@ body.theme-dark .site-footer {
     max-width: 230px;
   }
 }
+
+/* ===== Post-registration WhatsApp prompt ===== */
+.wa-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.wa-modal[hidden] {
+  display: none;
+}
+
+.wa-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 8, 22, 0.62);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.wa-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 26rem;
+  padding: 2rem 1.75rem;
+  text-align: center;
+  background: var(--surface-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 24px 60px rgba(2, 6, 23, 0.35);
+  animation: wa-modal-in 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes wa-modal-in {
+  from { opacity: 0; transform: translateY(14px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-modal-card { animation: none; }
+}
+
+.wa-modal-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.75rem;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--text-body);
+  background: none;
+  border: 0;
+  border-radius: 50%;
+  opacity: 0.55;
+  cursor: pointer;
+}
+
+.wa-modal-close:hover { opacity: 1; background: var(--bg-tint); }
+
+.wa-modal-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: 0 auto;
+  font-size: 1.75rem;
+  color: #25d366;
+  background: rgba(37, 211, 102, 0.14);
+  border-radius: 50%;
+}
+
+.wa-modal-kicker {
+  margin-top: 1rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary-start);
+}
+
+.wa-modal-title {
+  margin-top: 0.4rem;
+  font-size: 1.45rem;
+}
+
+.wa-modal-text {
+  margin-top: 0.7rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-body);
+  opacity: 0.85;
+}
+
+.wa-modal-join {
+  width: 100%;
+  margin-top: 1.4rem;
+}
+
+.wa-modal-later {
+  width: 100%;
+  margin-top: 0.75rem;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-body);
+  background: none;
+  border: 0;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.wa-modal-later:hover { opacity: 1; color: var(--primary-start); }

@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react';
 import { SectionHeading } from '@/components/ui/section-heading';
+import { WhatsappModal } from '@/components/ui/whatsapp-modal';
 import { Icon } from '@/components/ui/icon';
 import { siteConfig } from '@/lib/site-config';
 import { formatPrice } from '@/lib/utils';
@@ -80,6 +81,7 @@ export function Registration() {
   const [form, setForm] = useState<RegistrationPayload>(emptyForm);
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<Status>('idle');
+  const [showWhatsapp, setShowWhatsapp] = useState(false);
   const [message, setMessage] = useState('');
   const [screenshot, setScreenshot] = useState<{ name: string; data: string } | null>(null);
   const startedRef = useRef(false);
@@ -154,6 +156,7 @@ export function Registration() {
       });
 
       setStatus('success');
+      setShowWhatsapp(true);
       setForm(emptyForm);
       setScreenshot(null);
     } catch (err) {
@@ -177,11 +180,29 @@ export function Registration() {
               inbox (and spam folder) for a confirmation from{' '}
               <a href={`mailto:${siteConfig.contactEmail}`} className="text-accent-600">{siteConfig.contactEmail}</a>.
             </p>
-            <a href={siteConfig.social.facebookGroup} target="_blank" rel="noopener noreferrer" className="btn-primary mt-6">
-              Join the community group
+            <a
+              href={siteConfig.social.whatsappGroup}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary mt-6"
+            >
+              Join the WhatsApp group
             </a>
+            <p className="mt-4 text-sm text-muted">
+              Prefer Facebook?{' '}
+              <a
+                href={siteConfig.social.facebookGroup}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-accent-600 hover:underline"
+              >
+                Join the community group
+              </a>
+              .
+            </p>
           </div>
         </div>
+        <WhatsappModal open={showWhatsapp} onClose={() => setShowWhatsapp(false)} />
       </section>
     );
   }

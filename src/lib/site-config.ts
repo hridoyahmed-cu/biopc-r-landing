@@ -46,6 +46,8 @@ export const siteConfig = {
     facebookGroup: 'https://facebook.com/groups/5659344424181576/',
     linkedin: 'https://www.linkedin.com/company/biopc-a-bioinformatics-lab',
     website: 'https://biopc.org',
+    // Cohort group shown in the post-registration popup.
+    whatsappGroup: 'https://chat.whatsapp.com/JMlvfDf3KpE0gh96PUZoza?s=cl&p=i&mlu=0&ilr=0',
   },
 
   // Payment channels shown in the registration section.
@@ -83,7 +85,7 @@ export type NavMenu = {
  */
 export const courseMenus: NavMenu[] = [
   {
-    label: 'Current Courses',
+    label: 'Running Courses',
     items: [
       { label: 'Bioinformatics Research Internship 4.0', href: routes.internship },
     ],
@@ -99,7 +101,7 @@ export const courseMenus: NavMenu[] = [
 /** Cards rendered on the academy homepage, one per course. */
 export const courseCatalog = [
   {
-    group: 'Current',
+    group: 'Running',
     name: 'Bioinformatics Research Internship 4.0',
     blurb:
       'A 4-month online cohort: CADD, network pharmacology, DFT, vaccine design, cancer bioinformatics and manuscript writing - with real deliverables and a pathway to TA/RA roles.',

@@ -26,8 +26,8 @@ export const metadata: Metadata = {
 /** Groups rendered in order on the homepage. */
 const groups = [
   {
-    key: 'Current',
-    eyebrow: 'Current Courses',
+    key: 'Running',
+    eyebrow: 'Running Courses',
     heading: 'Running now',
     subtitle: 'Open cohorts you can join today.',
   },
