@@ -1,0 +1,86 @@
+# Keeps public/internship in step with the standalone internship site.
+#
+# The internship site lives in its own repo and is vendored into this one as a
+# plain copy, because Vercel deploys this repo. This workflow does the copying
+# so the two cannot silently drift.
+#
+# It syncs from the FORK, not from upstream, so third-party commits still pass
+# through a repo you control before they reach production.
+name: Sync internship site
+
+on:
+  schedule:
+    # 02:00 UTC daily (08:00 in Dhaka).
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Never let two syncs race for the same push.
+concurrency:
+  group: sync-internship
+  cancel-in-progress: false
+
+env:
+  SOURCE_REPO: hridoyahmed-cu/Bioinformatics_Research_Internship
+  DEST: public/internship
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out this repo
+        uses: actions/checkout@v4
+
+      - name: Check out the internship site
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.SOURCE_REPO }}
+          ref: main
+          path: .internship-src
+
+      - name: Copy it into ${{ env.DEST }}
+        run: |
+          set -euo pipefail
+          SRC=.internship-src
+
+          # The <base> tag is what makes the site's relative asset paths resolve
+          # when it is served from /internship/ rather than a domain root.
+          # Without it every stylesheet, script and image 404s, so refuse to
+          # publish rather than deploy a page that renders as unstyled text.
+          if ! grep -q '<base href="/internship/">' "$SRC/index.html"; then
+            echo "::error file=index.html::Missing <base href=\"/internship/\">. Refusing to sync - the deployed page would lose every asset."
+            exit 1
+          fi
+
+          # biopc.site does not resolve; a canonical pointing there de-indexes
+          # the page. Warn, but do not block a deploy over it.
+          if grep -q 'biopc\.site' "$SRC/index.html"; then
+            echo "::warning file=index.html::index.html references biopc.site, which does not resolve. Check the canonical and og:url tags."
+          fi
+
+          # Repo metadata must never be web-served.
+          rm -rf "$SRC/.git" "$SRC/.github"
+
+          rm -rf "$DEST"
+          mkdir -p "$DEST"
+          cp "$SRC/index.html" "$SRC/styles.css" "$SRC/script.js" "$DEST/"
+          cp -r "$SRC/image" "$DEST/"
+          rm -rf "$SRC"
+
+      - name: Commit and push if anything changed
+        run: |
+          set -euo pipefail
+          git add -A -- "$DEST"
+          if git diff --cached --quiet -- "$DEST"; then
+            echo "Already in sync - nothing to commit."
+            exit 0
+          fi
+          echo "Changes to publish:"
+          git diff --cached --stat -- "$DEST"
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Sync internship site from ${SOURCE_REPO}"
+          git push
+          echo "Pushed - Vercel will deploy this automatically."
