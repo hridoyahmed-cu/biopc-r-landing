@@ -6,6 +6,12 @@ const nextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
   },
+  // The Bioinformatics Research Internship site is a standalone static build
+  // living in public/internship. This maps the clean /internship URL onto it;
+  // its <base href="/internship/"> keeps the relative assets resolving.
+  async rewrites() {
+    return [{ source: '/internship', destination: '/internship/index.html' }];
+  },
   async headers() {
     return [
       {

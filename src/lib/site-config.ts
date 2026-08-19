@@ -56,3 +56,65 @@ export const siteConfig = {
 } as const;
 
 export type SiteConfig = typeof siteConfig;
+
+/** Where each course site lives under courses.biopc.org. */
+export const routes = {
+  rProgramming: '/r-programming',
+  internship: '/internship',
+} as const;
+
+/** In-page section links, shown in the navbar only on the R Programming page. */
+export const courseSections = [
+  { href: '#benefits', label: 'Benefits' },
+  { href: '#curriculum', label: 'Curriculum' },
+  { href: '#instructor', label: 'Instructor' },
+  { href: '#faq', label: 'FAQ' },
+];
+
+/** A dropdown in the navbar: a group label plus the courses under it. */
+export type NavMenu = {
+  label: string;
+  items: { label: string; href: string; external?: boolean }[];
+};
+
+/**
+ * Course submenus shown in the navbar.
+ * Add a course by dropping an entry into the right group - no component edits.
+ */
+export const courseMenus: NavMenu[] = [
+  {
+    label: 'Current Courses',
+    items: [
+      { label: 'Bioinformatics Research Internship 4.0', href: routes.internship },
+    ],
+  },
+  {
+    label: 'Previous Courses',
+    items: [
+      { label: siteConfig.courseName, href: routes.rProgramming },
+    ],
+  },
+];
+
+/** Cards rendered on the academy homepage, one per course. */
+export const courseCatalog = [
+  {
+    group: 'Current',
+    name: 'Bioinformatics Research Internship 4.0',
+    blurb:
+      'A 4-month online cohort: CADD, network pharmacology, DFT, vaccine design, cancer bioinformatics and manuscript writing - with real deliverables and a pathway to TA/RA roles.',
+    meta: ['4 months', '7 modules', 'Online cohort'],
+    href: routes.internship,
+    cta: 'View course',
+    open: true,
+  },
+  {
+    group: 'Previous',
+    name: siteConfig.courseName,
+    blurb: siteConfig.courseShort,
+    meta: [siteConfig.format.duration, 'Live online', 'Certificate'],
+    href: routes.rProgramming,
+    cta: 'View course page',
+    open: false,
+  },
+];

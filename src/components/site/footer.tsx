@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { siteConfig } from '@/lib/site-config';
+import { courseMenus, siteConfig } from '@/lib/site-config';
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -17,12 +17,22 @@ export function Footer() {
 
           <div className="grid grid-cols-2 gap-10 text-sm">
             <div>
-              <p className="mb-3 font-semibold">Course</p>
+              <p className="mb-3 font-semibold">Courses</p>
               <ul className="space-y-2 text-muted">
-                <li><a href="#benefits" className="hover:text-accent-600">Benefits</a></li>
-                <li><a href="#curriculum" className="hover:text-accent-600">Curriculum</a></li>
-                <li><a href="#faq" className="hover:text-accent-600">FAQ</a></li>
-                <li><a href="#register" className="hover:text-accent-600">Register</a></li>
+                {courseMenus.flatMap((menu) =>
+                  menu.items.map((item) => (
+                    <li key={item.href}>
+                      <a
+                        href={item.href}
+                        target={item.external ? '_blank' : undefined}
+                        rel={item.external ? 'noopener noreferrer' : undefined}
+                        className="hover:text-accent-600"
+                      >
+                        {item.label}
+                      </a>
+                    </li>
+                  )),
+                )}
               </ul>
             </div>
             <div>

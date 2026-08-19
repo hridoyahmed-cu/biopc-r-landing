@@ -20,42 +20,18 @@ const poppins = Poppins({
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://courses.biopc.org';
-const title = `${siteConfig.courseName} — ${siteConfig.org} Live Course`;
-const description = `${siteConfig.courseSubtitle}. ${siteConfig.courseShort} Live online, beginner-friendly, with certificate. Register now.`;
 
+// Site-wide defaults. Each page (academy home, R Programming) overrides title,
+// description, canonical and OG image with its own `metadata` export.
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title,
-  description,
-  keywords: [
-    'R programming for biologists',
-    'R for biology',
-    'bioinformatics course',
-    'data analysis in R',
-    'ggplot2',
-    'RStudio course',
-    'biostatistics',
-    'BioPC',
-    'R programming course Bangladesh',
-    'learn R online',
-  ],
+  title: {
+    default: `${siteConfig.org} Academy - Bioinformatics Courses & Training`,
+    template: `%s`,
+  },
+  description: `${siteConfig.orgTagline}. Live, mentor-led bioinformatics and data-analysis training for biologists.`,
   authors: [{ name: siteConfig.org, url: siteConfig.social.website }],
   creator: siteConfig.org,
-  alternates: { canonical: '/' },
-  openGraph: {
-    type: 'website',
-    url: siteUrl,
-    siteName: `${siteConfig.org} Academy`,
-    title,
-    description,
-    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: title }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title,
-    description,
-    images: ['/opengraph-image'],
-  },
   icons: {
     icon: '/favicon.png',
     apple: '/favicon.png',

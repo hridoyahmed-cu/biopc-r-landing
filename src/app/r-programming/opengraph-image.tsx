@@ -2,12 +2,12 @@ import { ImageResponse } from 'next/og';
 import { siteConfig } from '@/lib/site-config';
 
 export const runtime = 'edge';
-export const alt = `${siteConfig.org} Academy — bioinformatics courses and training`;
+export const alt = `${siteConfig.courseName} — ${siteConfig.org} live course`;
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
 /**
- * Share card for the academy homepage.
+ * Branded social-share card for the Facebook/Twitter link preview.
  * Satori rule: EVERY element with more than one child needs display:flex;
  * avoid emoji (they trigger an external glyph fetch at render time).
  */
@@ -38,11 +38,11 @@ export default function OpengraphImage() {
               borderRadius: 16,
               marginRight: 18,
               background: 'rgba(255,255,255,0.16)',
-              fontSize: 30,
+              fontSize: 34,
               fontWeight: 700,
             }}
           >
-            Bio
+            R
           </div>
           <div style={{ display: 'flex', fontSize: 30, fontWeight: 700 }}>
             {`${siteConfig.org} Academy`}
@@ -50,16 +50,19 @@ export default function OpengraphImage() {
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <div style={{ display: 'flex', fontSize: 34, opacity: 0.85, marginBottom: 12 }}>
-            {siteConfig.orgTagline}
+          <div style={{ display: 'flex', fontSize: 36, opacity: 0.85, marginBottom: 12 }}>
+            Live Online Course
           </div>
-          <div style={{ display: 'flex', fontSize: 74, fontWeight: 800, lineHeight: 1.05 }}>
-            Bioinformatics courses for biologists
+          <div style={{ display: 'flex', fontSize: 80, fontWeight: 800 }}>
+            {siteConfig.courseName}
+          </div>
+          <div style={{ display: 'flex', fontSize: 34, opacity: 0.9, marginTop: 20 }}>
+            {siteConfig.courseSubtitle}
           </div>
         </div>
 
         <div style={{ display: 'flex', fontSize: 26, opacity: 0.95 }}>
-          Live cohorts  ·  Hands-on projects  ·  Mentor-led
+          No coding experience needed  ·  Certificate  ·  Lifetime recordings
         </div>
       </div>
     ),

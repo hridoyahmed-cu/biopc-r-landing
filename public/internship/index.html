@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Mounted under BioPC Academy at /internship/ so the relative asset
+       paths (styles.css, script.js, image/...) keep resolving. -->
+  <base href="/internship/">
+  <title>BioPC Academy | Bioinformatics Research Internship 4.0</title>
+  <meta name="description"
+    content="Join BioPC Academy's Bioinformatics Research Internship 4.0 — a 4-month online cohort with 7 hands-on modules, real deliverables, and a pathway to TA/RA roles. Enroll before Sep 20, 2026.">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="BioPC Academy — Bioinformatics Research Internship 4.0">
+  <meta property="og:description"
+    content="From basic bioinformatics to publication-ready research — 7 modules, hands-on projects, mentor-led.">
+  <meta property="og:image" content="image/Logo.png">
+  <meta property="og:url" content="https://courses.biopc.org/internship">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BioPC Academy — BRI 4.0">
+  <meta name="twitter:description" content="7-module bioinformatics research internship. Enroll before Sep 20, 2026.">
+  <link rel="canonical" href="https://courses.biopc.org/internship">
+
+  <link rel="icon" type="image/png" href="image/Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    referrerpolicy="no-referrer" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Bioinformatics Research Internship 4.0",
+  "description": "A 4-month cohort-based online program covering CADD, Network Pharmacology, DFT, Vaccine Design, Cancer Bioinformatics, and Manuscript Writing.",
+  "provider": { "@type": "Organization", "name": "BioPC Academy", "url": "https://biopc.org" },
+  "startDate": "2026-09-27",
+  "courseMode": "Online",
+  "offers": { "@type": "Offer", "price": "5000", "priceCurrency": "BDT", "availability": "https://schema.org/LimitedAvailability" },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "Online",
+    "instructor": [
+      { "@type": "Person", "name": "Hridoy Ahmed" },
+      { "@type": "Person", "name": "Md. Mustak Khan" }
+    ]
+  }
+}
+</script>
+</head>
+
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div id="scrollProgress" class="scroll-progress" role="progressbar" aria-label="Page scroll progress"></div>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a href="#" class="logo" aria-label="BioPC Academy home">
+        <span class="brand-badge">
+          <img src="image/Logo.png" alt="BioPC Academy logo" class="brand-logo">
+        </span>
+        <span>BioPC <span>Academy</span></span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#benefits" data-section="benefits">Benefits</a>
+        <a href="#curriculum" data-section="curriculum">Curriculum</a>
+        <a href="#resources" data-section="resources">Resources</a>
+        <a href="#instructors" data-section="instructors">Instructors</a>
+        <a href="#testimonials" data-section="testimonials">Testimonials</a>
+        <a href="#faq" data-section="faq">FAQ</a>
+        <a href="#register" class="mobile-nav-register-btn" data-section="register">
+          <span class="live-dot" aria-hidden="true"></span> Register Now (৳5,000)
+        </a>
+      </nav>
+      <a href="#register" class="btn btn-primary btn-nav" id="navRegisterBtn">
+        <span class="live-dot" aria-hidden="true"></span> Register Now
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle day and night mode"
+        title="Toggle day and night mode">
+        <span class="theme-toggle-icon">☀</span>
+      </button>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="home">
+    <video class="hero-video-bg" autoplay muted loop playsinline preload="auto">
+      <source src="image/hero-bg.mp4" type="video/mp4">
+    </video>
+
+    <!-- Floating achievement badges -->
+    <div class="hero-float-badge badge-1" aria-hidden="true">
+      <i class="fa-solid fa-users"></i>
+      <span>3,000+ Trainees</span>
+    </div>
+    <div class="hero-float-badge badge-2" aria-hidden="true">
+      <i class="fa-solid fa-building-columns"></i>
+      <span>30+ Universities</span>
+    </div>
+    <div class="hero-float-badge badge-3" aria-hidden="true">
+      <i class="fa-solid fa-flask"></i>
+      <span>15+ Research Projects</span>
+    </div>
+
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <span class="pill">● LIVE ONLINE COHORT</span>
+        <h1>Bioinformatics Research<br>Internship <span class="gradient-text">4.0</span></h1>
+        <p class="hero-sub">From basic bioinformatics to publication-ready research — 7 modules, hands-on projects,
+          mentor-led, one cohort at a time.</p>
+
+        <div class="price-panel">
+          <div class="price-tag student">
+            <span class="price-label">Student</span>
+            <div class="price-row">
+              <span class="price-old">৳10,000</span>
+              <strong>৳5,000</strong>
+            </div>
+            <span class="price-meta">50% OFF</span>
+          </div>
+          <div class="price-tag professional">
+            <span class="price-label">Professional / Working</span>
+            <strong class="professional-price">৳10,000</strong>
+          </div>
+        </div>
+        <p class="pricing-note">Standard rate for professionals and working participants</p>
+        <div class="hero-ctas">
+          <a href="#register" class="btn btn-primary">Register Now</a>
+          <a href="#curriculum" class="btn btn-secondary">Explore Curriculum</a>
+        </div>
+      </div>
+
+      <div class="hero-side-card">
+        <div class="hero-card-head">
+          <span class="hero-card-badge">Registration deadline: 20 Sep 2026</span>
+          <h2>Reserve your place before the final deadline</h2>
+        </div>
+
+        <div class="countdown" id="countdown" aria-live="polite">
+          <div class="countdown-box"><span id="cd-days">00</span><label>Days</label></div>
+          <div class="countdown-box"><span id="cd-hours">00</span><label>Hours</label></div>
+          <div class="countdown-box"><span id="cd-mins">00</span><label>Minutes</label></div>
+          <div class="countdown-box"><span id="cd-secs">00</span><label>Seconds</label></div>
+        </div>
+
+        <div class="key-info-grid">
+          <div class="key-info-item"><strong>Registration Deadline</strong><span>20 Sep 2026</span></div>
+          <div class="key-info-item"><strong>Course Start</strong><span>Within 7 days after deadline</span></div>
+          <div class="key-info-item"><strong>Schedule</strong><span>Fri, Sat &amp; Tue, 9:30–11:00 PM</span></div>
+          <div class="key-info-item"><strong>Duration</strong><span>4 Months</span></div>
+          <div class="key-info-item"><strong>Batch Limit</strong><span>80 Seats</span></div>
+          <div class="key-info-item"><strong>Level</strong><span>All Levels</span></div>
+          <div class="key-info-item"><strong>Platform</strong><span>Google Meet / Zoom</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY BIOPC ACADEMY ============ -->
+  <section class="why-us">
+    <div class="container">
+      <span class="eyebrow fade-in">Trusted by researchers across Bangladesh</span>
+      <h2 class="section-title fade-in">Why BioPC Academy</h2>
+      <p class="section-desc fade-in">BioPC Academy is a research-driven training initiative built by working
+        bioinformaticians, dedicated to helping life-science students move from textbook theory to publication-ready
+        computational research — through cohort-based programs, olympiads, and mentorship.</p>
+
+      <div class="stat-strip">
+        <div class="stat fade-in">
+          <i class="fa-solid fa-users stat-icon" aria-hidden="true"></i>
+          <span class="stat-num" data-target="3000" data-suffix="+">0</span>
+          <span class="stat-label">Trainees Reached</span>
+        </div>
+        <div class="stat fade-in">
+          <i class="fa-solid fa-microscope stat-icon" aria-hidden="true"></i>
+          <span class="stat-num" data-target="15" data-suffix="+">0</span>
+          <span class="stat-label">Research Projects</span>
+        </div>
+        <div class="stat fade-in">
+          <i class="fa-solid fa-chalkboard-user stat-icon" aria-hidden="true"></i>
+          <span class="stat-num" data-target="20" data-suffix="+">0</span>
+          <span class="stat-label">Training Programs</span>
+        </div>
+        <div class="stat fade-in">
+          <i class="fa-solid fa-building-columns stat-icon" aria-hidden="true"></i>
+          <span class="stat-num" data-target="30" data-suffix="+">0</span>
+          <span class="stat-label">Universities Represented</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY JOIN THIS INTERNSHIP ============ -->
+  <section class="features" id="benefits">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title fade-in">Why Join This Internship</h2>
+      </div>
+      <div class="benefit-box fade-in">
+        <p class="section-desc">A research-first training experience that helps you build the skills, portfolio, and
+          career momentum to move forward with confidence.</p>
+
+        <div class="benefit-categories">
+          <!-- Academic Outcomes -->
+          <div class="benefit-category fade-in">
+            <div class="benefit-cat-header">
+              <div class="benefit-cat-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+              <h4>Academic Outcomes</h4>
+            </div>
+            <div class="outcome-grid">
+              <div class="outcome-item fade-in">✓ Verified Certificate of Completion</div>
+              <div class="outcome-item fade-in">✓ A completed mini-project/portfolio piece per module</div>
+              <div class="outcome-item fade-in">✓ Manuscript-ready output from the capstone module</div>
+              <div class="outcome-item fade-in">✓ Build a strong, research-focused portfolio</div>
+              <div class="outcome-item fade-in">✓ Strengthen your profile for higher studies and scholarships</div>
+              <div class="outcome-item fade-in">✓ Performance-based letter of recommendation</div>
+            </div>
+          </div>
+
+          <!-- Research Access -->
+          <div class="benefit-category fade-in">
+            <div class="benefit-cat-header">
+              <div class="benefit-cat-icon"><i class="fa-solid fa-microscope"></i></div>
+              <h4>Research Access</h4>
+            </div>
+            <div class="outcome-grid">
+              <div class="outcome-item fade-in">✓ Hands-on experience with real research tools &amp; datasets</div>
+              <div class="outcome-item fade-in">✓ Opportunity for Research Assistant (RA) roles</div>
+              <div class="outcome-item fade-in">✓ Get involved in multiple research projects</div>
+              <div class="outcome-item fade-in">✓ Contribute to research paper publications</div>
+              <div class="outcome-item fade-in">✓ Direct mentorship &amp; feedback from instructors/TAs</div>
+            </div>
+          </div>
+
+          <!-- Community & Growth -->
+          <div class="benefit-category fade-in">
+            <div class="benefit-cat-header">
+              <div class="benefit-cat-icon"><i class="fa-solid fa-people-group"></i></div>
+              <h4>Community &amp; Growth</h4>
+            </div>
+            <div class="outcome-grid">
+              <div class="outcome-item fade-in">✓ Opportunity for Teaching Assistant (TA) roles</div>
+              <div class="outcome-item fade-in">✓ Potential pathways to become a Trainer</div>
+              <div class="outcome-item fade-in">✓ Lifetime access to recorded sessions &amp; resources</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESEARCH CAREER DEVELOPMENT PATHWAY ============ -->
+  <section class="career-pathway">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title fade-in">Research Career Development &amp; Advancement Pathway</h2>
+      </div>
+
+      <div class="pathway-grid">
+        <article class="pathway-card pathway-step-1 fade-in">
+          <div class="pathway-icon">01</div>
+          <h3>Top Performer Selection</h3>
+          <p>Outstanding participants are selected as Top Performers.</p>
+          <div class="pathway-connector" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></div>
+        </article>
+        <article class="pathway-card pathway-step-2 fade-in">
+          <div class="pathway-icon">02</div>
+          <h3>Viva Assessment</h3>
+          <p>Selected candidates complete a formal viva for research readiness.</p>
+          <div class="pathway-connector" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></div>
+        </article>
+        <article class="pathway-card pathway-step-3 fade-in">
+          <div class="pathway-icon">03</div>
+          <h3>Teaching Assistant</h3>
+          <p>Successful candidates gain teaching and mentoring experience as TAs.</p>
+          <div class="pathway-connector" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></div>
+        </article>
+        <article class="pathway-card pathway-step-4 fade-in">
+          <div class="pathway-icon">04</div>
+          <h3>Research Assistant</h3>
+          <p>Top TAs may move into active research roles with project access.</p>
+          <div class="pathway-connector" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></div>
+        </article>
+        <article class="pathway-card pathway-step-5 fade-in">
+          <div class="pathway-icon">05</div>
+          <h3>Permanent Membership</h3>
+          <p>Consistent excellence can lead to permanent BioPC membership.</p>
+        </article>
+      </div>
+
+      <div class="pathway-summary fade-in">
+        <p class="pathway-summary-text">
+          <span>Performance</span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          <span>Viva Assessment</span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          <span>TA</span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          <span>RA</span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          <span class="pathway-goal">Permanent BioPC Member</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHO SHOULD JOIN ============ -->
+  <section class="who-join">
+    <div class="container">
+      <h2 class="section-title fade-in">Who Should Join</h2>
+      <div class="profile-grid">
+        <div class="profile-card fade-in">
+          <div class="profile-card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <h3>Students</h3>
+          <p>Undergraduate, Master's, or PhD students in Biochemistry, Molecular Biology, Biotechnology, Pharmacy,
+            Genetic Engineering or any life-science disciplinary field.</p>
+        </div>
+        <div class="profile-card fade-in">
+          <div class="profile-card-icon"><i class="fa-solid fa-microscope"></i></div>
+          <h3>Early-Career Researchers</h3>
+          <p>Anyone wanting hands-on computational biology exposure beyond wet-lab work.</p>
+        </div>
+        <div class="profile-card fade-in">
+          <div class="profile-card-icon"><i class="fa-solid fa-file-pen"></i></div>
+          <h3>Thesis-Track Students</h3>
+          <p>Those preparing thesis or manuscript work who need CADD, network pharmacology, CAVD, RNA-Seq, or cancer
+            bioinformatics skills.</p>
+        </div>
+        <div class="profile-card fade-in">
+          <div class="profile-card-icon"><i class="fa-solid fa-lightbulb"></i></div>
+          <h3>Curious Beginners</h3>
+          <p>Basic biology background and curiosity is enough — no prior coding experience required.</p>
+        </div>
+      </div>
+
+      <!-- Prerequisites strip -->
+      <div class="prereq-strip fade-in">
+        <span class="prereq-label">Prerequisites at a Glance:</span>
+        <div class="prereq-items">
+          <span class="prereq-item"><i class="fa-solid fa-check"></i> Basic biology background</span>
+          <span class="prereq-item"><i class="fa-solid fa-check"></i> Curiosity to learn</span>
+          <span class="prereq-item"><i class="fa-solid fa-check"></i> Computer + stable internet</span>
+        </div>
+      </div>
+
+      <!-- Not a fit box -->
+      <div class="not-fit-box fade-in">
+        <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+        <p>Not a fit if you're looking for a purely theoretical course with no hands-on components.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CURRICULUM ============ -->
+  <section class="curriculum" id="curriculum">
+    <div class="container">
+      <h2 class="section-title fade-in">Curriculum Roadmap</h2>
+      <p class="section-desc fade-in">Seven modules, each ending in a real deliverable.</p>
+
+      <!-- Curriculum Timeline Overview -->
+      <div class="curriculum-timeline fade-in" id="curriculumTimeline" role="tablist" aria-label="Module overview">
+        <button class="timeline-node" data-module="0" role="tab" aria-selected="false">
+          <span class="tl-num">01</span>
+          <span class="tl-title">Bioinformatics</span>
+        </button>
+        <div class="tl-connector" aria-hidden="true"></div>
+        <button class="timeline-node" data-module="1" role="tab" aria-selected="false">
+          <span class="tl-num">02</span>
+          <span class="tl-title">CADD</span>
+        </button>
+        <div class="tl-connector" aria-hidden="true"></div>
+        <button class="timeline-node" data-module="2" role="tab" aria-selected="false">
+          <span class="tl-num">03</span>
+          <span class="tl-title">Net. Pharm.</span>
+        </button>
+        <div class="tl-connector" aria-hidden="true"></div>
+        <button class="timeline-node" data-module="3" role="tab" aria-selected="false">
+          <span class="tl-num">04</span>
+          <span class="tl-title">DFT</span>
+        </button>
+        <div class="tl-connector" aria-hidden="true"></div>
+        <button class="timeline-node" data-module="4" role="tab" aria-selected="false">
+          <span class="tl-num">05</span>
+          <span class="tl-title">Vaccine Design</span>
+        </button>
+        <div class="tl-connector" aria-hidden="true"></div>
+        <button class="timeline-node" data-module="5" role="tab" aria-selected="false">
+          <span class="tl-num">06</span>
+          <span class="tl-title">Cancer Bio.</span>
+        </button>
+        <div class="tl-connector" aria-hidden="true"></div>
+        <button class="timeline-node" data-module="6" role="tab" aria-selected="false">
+          <span class="tl-num">07</span>
+          <span class="tl-title">Manuscript</span>
+        </button>
+      </div>
+
+      <div class="module-stepper" id="moduleStepper">
+
+        <div class="module-item">
+          <button class="module-head">
+            <span class="module-index">01</span>
+            <span class="module-head-text">
+              <h3>Module 1 — Introduction to Bioinformatics and Biological Databases</h3>
+            </span>
+            <span class="module-chevron">⌄</span>
+          </button>
+          <div class="module-body">
+            <ul>
+              <li>Introduction to bioinformatics: scope and applications in drug discovery</li>
+              <li>Biological data types: DNA, RNA, and protein sequences</li>
+              <li>Sequence data retrieval and database overview</li>
+              <li>Key bioinformatics tools and workflows for molecular analysis</li>
+            </ul>
+            <div class="module-tools-used">
+              <span class="tools-label">Tools Used:</span>
+              <span class="tool-chip">NCBI</span>
+              <span class="tool-chip">UniProt</span>
+              <span class="tool-chip">PDB</span>
+              <span class="tool-chip">BLAST</span>
+            </div>
+            <span class="deliverable-badge"><i class="fa-solid fa-trophy" aria-hidden="true"></i> Deliverable: Annotated
+              sequence/database report</span>
+          </div>
+        </div>
+
+        <div class="module-item">
+          <button class="module-head">
+            <span class="module-index">02</span>
+            <span class="module-head-text">
+              <h3>Module 2 — Computer-Aided Drug Design (CADD)</h3>
+            </span>
+            <span class="module-chevron">⌄</span>
+          </button>
+          <div class="module-body">
+            <ul>
+              <li>Drug discovery pipeline and target identification</li>
+              <li>Structure-based and ligand-based drug design principles</li>
+              <li>Protein structure analysis and chemical representation</li>
+              <li>Ligand preparation and chemical structure drawing</li>
+              <li>Drug-likeness evaluation and physicochemical profiling</li>
+              <li>ADME and toxicity prediction</li>
+              <li>Protein structure modeling, AlphaFold prediction, and model validation</li>
+              <li>Pharmacophore modeling for lead identification</li>
+              <li>Molecular docking and protein–ligand interaction analysis</li>
+              <li>Interpretation of docking results</li>
+              <li>Molecular dynamics and flexibility analysis of protein–ligand complexes</li>
+            </ul>
+            <div class="module-tools-used">
+              <span class="tools-label">Tools Used:</span>
+              <span class="tool-chip">AlphaFold</span>
+              <span class="tool-chip">AutoDock Vina</span>
+              <span class="tool-chip">Biovia Discover Studio</span>
+              <span class="tool-chip">AdmetLab 3.0</span>
+              <span class="tool-chip">Protox 3.0</span>
+            </div>
+            <span class="deliverable-badge"><i class="fa-solid fa-trophy" aria-hidden="true"></i> Deliverable: Docking +
+              ADMET report on a candidate compound</span>
+          </div>
+        </div>
+
+        <div class="module-item">
+          <button class="module-head">
+            <span class="module-index">03</span>
+            <span class="module-head-text">
+              <h3>Module 3 — Network Pharmacology</h3>
+            </span>
+            <span class="module-chevron">⌄</span>
+          </button>
+          <div class="module-body">
+            <ul>
+              <li>Concepts of network and systems pharmacology</li>
+              <li>Multitarget drug discovery strategies</li>
+              <li>Identification of bioactive compounds from natural sources (IMPPAT 2.0, Dr. Duke's Database)</li>
+              <li>Prediction of compound–target interactions and disease-associated targets</li>
+              <li>Protein–protein interaction (PPI) network construction and analysis</li>
+              <li>Hub target identification using network topology</li>
+              <li>Functional enrichment (Gene Ontology, ShinyGO) and pathway (KEGG) analysis</li>
+              <li>Construction of drug–target, target–pathway, and integrated drug–target–pathway networks</li>
+              <li>Docking validation of key targets</li>
+            </ul>
+            <div class="module-tools-used">
+              <span class="tools-label">Tools Used:</span>
+              <span class="tool-chip">Venny 2.0</span>
+              <span class="tool-chip">ShinyGO</span>
+              <span class="tool-chip">IMPPAT 2.0</span>
+              <span class="tool-chip">Dr. Duke's DB</span>
+              <span class="tool-chip">GeneCards</span>
+              <span class="tool-chip">STRING</span>
+              <span class="tool-chip">Cytoscape</span>
+              <span class="tool-chip">Swiss Drug Design</span>
+            </div>
+            <span class="deliverable-badge"><i class="fa-solid fa-trophy" aria-hidden="true"></i> Deliverable:
+              Compound-disease-target network diagram + pathway report</span>
+          </div>
+        </div>
+
+        <div class="module-item">
+          <button class="module-head">
+            <span class="module-index">04</span>
+            <span class="module-head-text">
+              <h3>Module 4 — Density Functional Theory (DFT)</h3>
+            </span>
+            <span class="module-chevron">⌄</span>
+          </button>
+          <div class="module-body">
+            <ul>
+              <li>Build and optimize molecular structures</li>
+              <li>Perform DFT calculations using Gaussian</li>
+              <li>Analyze HOMO-LUMO</li>
+              <li>Perform IR, Raman &amp; NMR calculations</li>
+              <li>Interpret computational results</li>
+              <li>Prepare DFT results for research publications</li>
+            </ul>
+            <div class="module-tools-used">
+              <span class="tools-label">Tools Used:</span>
+              <span class="tool-chip">Gaussian</span>
+              <span class="tool-chip">GaussView</span>
+              <span class="tool-chip">Avogadro</span>
+            </div>
+            <span class="deliverable-badge"><i class="fa-solid fa-trophy" aria-hidden="true"></i> Deliverable: DFT
+              analysis report with spectral interpretation</span>
+          </div>
+        </div>
+
+        <div class="module-item">
+          <button class="module-head">
+            <span class="module-index">05</span>
+            <span class="module-head-text">
+              <h3>Module 5 — Vaccine Design</h3>
+            </span>
+            <span class="module-chevron">⌄</span>
+          </button>
+          <div class="module-body">
+            <ul>
+              <li>Fundamental concepts of vaccine immunology</li>
+              <li>Introduction to vaccines and major vaccine types</li>
+              <li>Comprehensive vaccine design workflow</li>
+              <li>Target virus identification and selection</li>
+              <li>Target protein identification and sequence retrieval</li>
+              <li>Physicochemical characterization of target proteins</li>
+              <li>T-cell and B-cell epitope prediction</li>
+              <li>Epitope screening based on antigenicity, toxicity, allergenicity, conservancy, and sequence homology
+              </li>
+              <li>Multi-epitope vaccine sequence construction</li>
+              <li>Physicochemical characterization of the designed vaccine</li>
+              <li>Secondary and tertiary structure prediction and validation</li>
+              <li>Protein–protein molecular docking and interaction analysis</li>
+            </ul>
+            <div class="module-tools-used">
+              <span class="tools-label">Tools Used:</span>
+              <span class="tool-chip">IEDB</span>
+              <span class="tool-chip">VaxiJen</span>
+              <span class="tool-chip">AllerTOP</span>
+              <span class="tool-chip">ProtParam</span>
+              <span class="tool-chip">AlphaFold</span>
+              <span class="tool-chip">ClusPro</span>
+              <span class="tool-chip">AutoDock Vina</span>
+              <span class="tool-chip">C-ImmSim</span>
+            </div>
+            <span class="deliverable-badge"><i class="fa-solid fa-trophy" aria-hidden="true"></i> Deliverable:
+              Multi-epitope vaccine construct workflow, validation &amp; molecular docking analysis report</span>
+          </div>
+        </div>
+
+        <div class="module-item">
+          <button class="module-head">
+            <span class="module-index">06</span>
+            <span class="module-head-text">
+              <h3>Module 6 — Cancer Bioinformatics</h3>
+            </span>
+            <span class="module-chevron">⌄</span>
+          </button>
+          <div class="module-body">
+            <ul>
+              <li>Foundations of Cancer Biology</li>
+              <li>Transcriptional Expression Profiling</li>
+              <li>Proteomic Expression Assessment</li>
+              <li>Survival Prognosis Evaluation</li>
+              <li>Genetic Alteration and DNA Methylation Profiling</li>
+              <li>Tumor Mutational Burden, Microsatellite Instability, and Immune Checkpoint Correlation</li>
+              <li>Immune Cell Infiltration Assessment</li>
+              <li>Protein–Protein Interaction and Functional Enrichment Mapping</li>
+            </ul>
+            <div class="module-tools-used">
+              <span class="tools-label">Tools Used:</span>
+              <span class="tool-chip">cBioPortal</span>
+              <span class="tool-chip">KM Plotter</span>
+              <span class="tool-chip">Human Protein Atlas</span>
+              <span class="tool-chip">GEPIA 2</span>
+              <span class="tool-chip">UALCAN</span>
+              <span class="tool-chip">GREIN</span>
+              <span class="tool-chip">STRING</span>
+              <span class="tool-chip">ShinyGO</span>
+            </div>
+            <span class="deliverable-badge"><i class="fa-solid fa-trophy" aria-hidden="true"></i> Deliverable:
+              Multi-omics cancer biomarker profiling, immune infiltration &amp; survival prognosis report</span>
+          </div>
+        </div>
+
+        <div class="module-item">
+          <button class="module-head">
+            <span class="module-index">07</span>
+            <span class="module-head-text">
+              <h3>Module 7 — Bioinformatics-Based Manuscript Writing</h3>
+            </span>
+            <span class="module-chevron">⌄</span>
+          </button>
+          <div class="module-body">
+            <ul>
+              <li>Research paper structure &amp; IMRaD</li>
+              <li>Literature review &amp; research gap identification</li>
+              <li>Scientific &amp; academic writing</li>
+              <li>Introduction, Methods, Results &amp; Discussion</li>
+              <li>Computational results writing</li>
+              <li>Tables, figures &amp; scientific data presentation</li>
+              <li>Citation &amp; reference management</li>
+              <li>Plagiarism &amp; research ethics</li>
+              <li>Journal selection &amp; manuscript formatting</li>
+              <li>Cover letter &amp; reviewer response</li>
+              <li>Guided manuscript writing project</li>
+            </ul>
+            <div class="module-tools-used">
+              <span class="tools-label">Tools Used:</span>
+              <span class="tool-chip">Zotero</span>
+              <span class="tool-chip">SciSpace</span>
+              <span class="tool-chip">QuillBot</span>
+              <span class="tool-chip">Grammarly</span>
+              <span class="tool-chip">Turnitin</span>
+              <span class="tool-chip">Mendeley</span>
+            </div>
+            <span class="deliverable-badge"><i class="fa-solid fa-trophy" aria-hidden="true"></i> Deliverable: Draft
+              manuscript section based on internship project</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESOURCES & TOOLS ============ -->
+  <section class="resources" id="resources">
+    <div class="container">
+      <h2 class="section-title fade-in">Research Resources &amp; Computational Tools</h2>
+      <p class="section-desc fade-in">30+ industry-standard tools and databases — most free and browser-based — covering
+        your entire research workflow.</p>
+
+      <div class="tools-dual-carousel fade-in">
+
+        <!-- Row 1 — scrolls left -->
+        <div class="carousel-row" aria-label="Tools carousel row 1">
+          <div class="carousel-track track-left" id="trackLeft">
+            <div class="tool-card"><img src="https://pshihn.github.io/venn/images/social.png" alt="Venny 2.0"
+                loading="lazy"><span class="tool-name">Venny 2.0</span></div>
+            <div class="tool-card"><img
+                src="https://www.clipartmax.com/png/middle/184-1845152_table-of-contents-zotero-logo.png" alt="Zotero"
+                loading="lazy"><span class="tool-name">Zotero</span></div>
+            <div class="tool-card"><img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmP0v_86EZAt6Eh_LjbtYkMaYFv0AwekbSAyAydOVLrtXtz4fiulVKd8e3&s=10"
+                alt="SciSpace" loading="lazy"><span class="tool-name">SciSpace</span></div>
+            <div class="tool-card"><img src="https://whatisai.sirv.com/WP_whatisai.co.uk/2025/01/quillbot-logo.webp"
+                alt="QuillBot" loading="lazy"><span class="tool-name">QuillBot</span></div>
+            <div class="tool-card"><img
+                src="https://nure.ua/wp-content/uploads/2024/png-clipart-grammarly-icon-logo-social-media-icons.png"
+                alt="Grammarly" loading="lazy"><span class="tool-name">Grammarly</span></div>
+            <div class="tool-card"><img
+                src="https://images.seeklogo.com/logo-png/46/1/turnitin-logo-png_seeklogo-469506.png" alt="Turnitin"
+                loading="lazy"><span class="tool-name">Turnitin</span></div>
+            <div class="tool-card"><img
+                src="https://edwardslab.wpengine.com/wp-content/uploads/2017/10/cropped-ncbi.png" alt="NCBI"
+                loading="lazy"><span class="tool-name">NCBI</span></div>
+            <div class="tool-card"><img src="https://cdn.rcsb.org/rcsb-pdb/v2/common/images/rcsb_logo.png" alt="PDB"
+                loading="lazy"><span class="tool-name">PDB</span>
+            </div>
+            <div class="tool-card"><img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2HzjjMHw29EyxweooJnEzL-1tC4EedpjivpUkBtxa0Ko_M7fdLaZygz2f&s=10"
+                alt="PubChem" loading="lazy"><span class="tool-name">PubChem</span></div>
+            <div class="tool-card"><img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Zinc_logo.png"
+                alt="Zinc Database" loading="lazy"><span class="tool-name">Zinc Database</span></div>
+            <div class="tool-card"><img src="https://www.molecular-modelling.ch/images/SDD_horizontal_rvb.png"
+                alt="Swiss Drug Design" loading="lazy"><span class="tool-name">Swiss Drug Design</span></div>
+            <div class="tool-card"><img
+                src="https://solaeringenieria.com/wp-content/uploads/2021/09/Logos-Big-9-BIOVIA.png"
+                alt="Biovia Discover Studio" loading="lazy"><span class="tool-name">Biovia DS</span></div>
+            <div class="tool-card"><img src="https://genealacart.genecards.org/Images/gc-logo.png" alt="GeneCards"
+                loading="lazy"><span class="tool-name">GeneCards</span></div>
+            <div class="tool-card"><img src="https://ualcan.path.uab.edu/Logos/logo.JPG" alt="UALCAN"
+                loading="lazy"><span class="tool-name">UALCAN</span></div>
+            <div class="tool-card"><img src="https://cdrl-ut.org/project/public_resources/string/featured.png"
+                alt="STRING" loading="lazy"><span class="tool-name">STRING</span></div>
+            <!-- Duplicate for infinite seamless scroll -->
+            <div class="tool-card"><img src="https://pshihn.github.io/venn/images/social.png" alt="Venny 2.0"
+                loading="lazy"><span class="tool-name">Venny 2.0</span></div>
+            <div class="tool-card"><img
+                src="https://www.clipartmax.com/png/middle/184-1845152_table-of-contents-zotero-logo.png" alt="Zotero"
+                loading="lazy"><span class="tool-name">Zotero</span></div>
+            <div class="tool-card"><img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmP0v_86EZAt6Eh_LjbtYkMaYFv0AwekbSAyAydOVLrtXtz4fiulVKd8e3&s=10"
+                alt="SciSpace" loading="lazy"><span class="tool-name">SciSpace</span></div>
+            <div class="tool-card"><img src="https://whatisai.sirv.com/WP_whatisai.co.uk/2025/01/quillbot-logo.webp"
+                alt="QuillBot" loading="lazy"><span class="tool-name">QuillBot</span></div>
+            <div class="tool-card"><img
+                src="https://nure.ua/wp-content/uploads/2024/png-clipart-grammarly-icon-logo-social-media-icons.png"
+                alt="Grammarly" loading="lazy"><span class="tool-name">Grammarly</span></div>
+            <div class="tool-card"><img
+                src="https://images.seeklogo.com/logo-png/46/1/turnitin-logo-png_seeklogo-469506.png" alt="Turnitin"
+                loading="lazy"><span class="tool-name">Turnitin</span></div>
+            <div class="tool-card"><img
+                src="https://edwardslab.wpengine.com/wp-content/uploads/2017/10/cropped-ncbi.png" alt="NCBI"
+                loading="lazy"><span class="tool-name">NCBI</span></div>
+            <div class="tool-card"><img src="https://cdn.rcsb.org/rcsb-pdb/v2/common/images/rcsb_logo.png" alt="PDB"
+                loading="lazy"><span class="tool-name">PDB</span>
+            </div>
+            <div class="tool-card"><img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2HzjjMHw29EyxweooJnEzL-1tC4EedpjivpUkBtxa0Ko_M7fdLaZygz2f&s=10"
+                alt="PubChem" loading="lazy"><span class="tool-name">PubChem</span></div>
+            <div class="tool-card"><img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Zinc_logo.png"
+                alt="Zinc Database" loading="lazy"><span class="tool-name">Zinc Database</span></div>
+            <div class="tool-card"><img src="https://www.molecular-modelling.ch/images/SDD_horizontal_rvb.png"
+                alt="Swiss Drug Design" loading="lazy"><span class="tool-name">Swiss Drug Design</span></div>
+            <div class="tool-card"><img
+                src="https://solaeringenieria.com/wp-content/uploads/2021/09/Logos-Big-9-BIOVIA.png"
+                alt="Biovia Discover Studio" loading="lazy"><span class="tool-name">Biovia DS</span></div>
+            <div class="tool-card"><img src="https://genealacart.genecards.org/Images/gc-logo.png" alt="GeneCards"
+                loading="lazy"><span class="tool-name">GeneCards</span></div>
+            <div class="tool-card"><img src="https://ualcan.path.uab.edu/Logos/logo.JPG" alt="UALCAN"
+                loading="lazy"><span class="tool-name">UALCAN</span></div>
+            <div class="tool-card"><img src="https://cdrl-ut.org/project/public_resources/string/featured.png"
+                alt="STRING" loading="lazy"><span class="tool-name">STRING</span></div>
+          </div>
+        </div>
+
+        <!-- Row 2 — scrolls right -->
+        <div class="carousel-row" aria-label="Tools carousel row 2">
+          <div class="carousel-track track-right" id="trackRight">
+            <div class="tool-card"><img src="https://bioinformatics.sdstate.edu/go80/shinygo_logo.png" alt="ShinyGO"
+                loading="lazy"><span class="tool-name">ShinyGO</span></div>
+            <div class="tool-card"><img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPUm-emZT_ZpFLhgshyg3Byb7kgW90EI4yOekM-u40Qv8Y48-eqHulH5xP&s=10"
+                alt="IMPPAT 2.0" loading="lazy"><span class="tool-name">IMPPAT 2.0</span></div>
+            <div class="tool-card"><img
+                src="https://upload.wikimedia.org/wikipedia/commons/0/04/Logo_of_the_United_States_Department_of_Agriculture.svg"
+                alt="Dr. Duke's Database" loading="lazy"><span class="tool-name">Dr. Duke's DB</span></div>
+            <div class="tool-card"><img src="https://lohas.org/wp-content/uploads/2025/02/cBioPortal-Logo.webp"
+                alt="cBioPortal" loading="lazy"><span class="tool-name">cBioPortal</span></div>
+            <div class="tool-card"><img src="https://www.ttk.hun-ren.hu/wp-content/uploads/kmplot.png"
+                alt="Kaplan-Meier Plotter" loading="lazy"><span class="tool-name">KM Plotter</span></div>
+            <div class="tool-card"><img src="https://www.proteinatlas.org/images_static/logo.svg"
+                alt="Human Protein Atlas" loading="lazy"><span class="tool-name">Protein Atlas</span></div>
+            <div class="tool-card"><img
+                src="https://lh4.googleusercontent.com/proxy/wn3TxaTpNtlxbN8Xfs4ih45Xavs6ofFsIakaMBzZt9VZhpzmdilvPmECUHtvJhAwUsDe0qAoQdNzGbwfAYtQBYaGdDlW"
+                alt="GEPIA 2" loading="lazy"><span class="tool-name">GEPIA 2</span></div>
+            <div class="tool-card"><img src="https://tox.charite.de/protox3/img/predict.png" alt="Protox 3.0"
+                loading="lazy"><span class="tool-name">Protox 3.0</span></div>
+            <div class="tool-card"><img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnis0s4H_MQSOzeRdnyVEyirxQWhpvqZ6I2wLcQ-ns6g&s=10"
+                alt="UniProt" loading="lazy"><span class="tool-name">UniProt</span></div>
+            <div class="tool-card"><img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpJb19nrJSKWMGrdS8rLKD2V_r1dy2KicOVw1jP-3gSALLQonSk4NelZs&s=10"
+                alt="AlphaFold" loading="lazy"><span class="tool-name">AlphaFold</span></div>
+            <div class="tool-card"><img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW0mEWqXv5FtQJAIprDHy2Ci8miUxc-nDMAObh0aZrAuLURcUuS4zGFadR&s=10"
+                alt="AdmetLab 3.0" loading="lazy"><span class="tool-name">AdmetLab 3.0</span></div>
+            <div class="tool-card"><img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROo_tonmtXX0YMHR7VdMzTTgYNpAq76sQtsMUb1Q7f2w&s=10"
+                alt="AutoDock Vina" loading="lazy"><span class="tool-name">AutoDock Vina</span></div>
+            <div class="tool-card"><img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfgXZTwLIcwGlu1RPWoP9zAmUR8mcvLDTCZEvETxj1EUAxVX9Fa238zWY&s=10"
+                alt="Cytoscape" loading="lazy"><span class="tool-name">Cytoscape</span></div>
+            <div class="tool-card"><img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7pBGxfe_JkwYlqlATNkHNxs-lKjST69IPFZtDVV9_Eg&s"
+                alt="SwissDock" loading="lazy"><span class="tool-name">SwissDock</span></div>
+            <div class="tool-card"><img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ2WBBO0N0rRgXQS1biInI9ivj2T-KN1ImJmPr869Cog&s=10"
+                alt="GREIN" loading="lazy"><span class="tool-name">GREIN</span></div>
+            <!-- Duplicate for infinite seamless scroll -->
+            <div class="tool-card"><img src="https://bioinformatics.sdstate.edu/go80/shinygo_logo.png" alt="ShinyGO"
+                loading="lazy"><span class="tool-name">ShinyGO</span></div>
+            <div class="tool-card"><img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPUm-emZT_ZpFLhgshyg3Byb7kgW90EI4yOekM-u40Qv8Y48-eqHulH5xP&s=10"
+                alt="IMPPAT 2.0" loading="lazy"><span class="tool-name">IMPPAT 2.0</span></div>
+            <div class="tool-card"><img
+                src="https://upload.wikimedia.org/wikipedia/commons/0/04/Logo_of_the_United_States_Department_of_Agriculture.svg"
+                alt="Dr. Duke's Database" loading="lazy"><span class="tool-name">Dr. Duke's DB</span></div>
+            <div class="tool-card"><img src="https://lohas.org/wp-content/uploads/2025/02/cBioPortal-Logo.webp"
+                alt="cBioPortal" loading="lazy"><span class="tool-name">cBioPortal</span></div>
+            <div class="tool-card"><img src="https://www.ttk.hun-ren.hu/wp-content/uploads/kmplot.png"
+                alt="Kaplan-Meier Plotter" loading="lazy"><span class="tool-name">KM Plotter</span></div>
+            <div class="tool-card"><img src="https://www.proteinatlas.org/images_static/logo.svg"
+                alt="Human Protein Atlas" loading="lazy"><span class="tool-name">Protein Atlas</span></div>
+            <div class="tool-card"><img
+                src="https://lh4.googleusercontent.com/proxy/wn3TxaTpNtlxbN8Xfs4ih45Xavs6ofFsIakaMBzZt9VZhpzmdilvPmECUHtvJhAwUsDe0qAoQdNzGbwfAYtQBYaGdDlW"
+                alt="GEPIA 2" loading="lazy"><span class="tool-name">GEPIA 2</span></div>
+            <div class="tool-card"><img src="https://tox.charite.de/protox3/img/predict.png" alt="Protox 3.0"
+                loading="lazy"><span class="tool-name">Protox 3.0</span></div>
+            <div class="tool-card"><img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnis0s4H_MQSOzeRdnyVEyirxQWhpvqZ6I2wLcQ-ns6g&s=10"
+                alt="UniProt" loading="lazy"><span class="tool-name">UniProt</span></div>
+            <div class="tool-card"><img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpJb19nrJSKWMGrdS8rLKD2V_r1dy2KicOVw1jP-3gSALLQonSk4NelZs&s=10"
+                alt="AlphaFold" loading="lazy"><span class="tool-name">AlphaFold</span></div>
+            <div class="tool-card"><img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW0mEWqXv5FtQJAIprDHy2Ci8miUxc-nDMAObh0aZrAuLURcUuS4zGFadR&s=10"
+                alt="AdmetLab 3.0" loading="lazy"><span class="tool-name">AdmetLab 3.0</span></div>
+            <div class="tool-card"><img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROo_tonmtXX0YMHR7VdMzTTgYNpAq76sQtsMUb1Q7f2w&s=10"
+                alt="AutoDock Vina" loading="lazy"><span class="tool-name">AutoDock Vina</span></div>
+            <div class="tool-card"><img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfgXZTwLIcwGlu1RPWoP9zAmUR8mcvLDTCZEvETxj1EUAxVX9Fa238zWY&s=10"
+                alt="Cytoscape" loading="lazy"><span class="tool-name">Cytoscape</span></div>
+            <div class="tool-card"><img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7pBGxfe_JkwYlqlATNkHNxs-lKjST69IPFZtDVV9_Eg&s"
+                alt="SwissDock" loading="lazy"><span class="tool-name">SwissDock</span></div>
+            <div class="tool-card"><img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ2WBBO0N0rRgXQS1biInI9ivj2T-KN1ImJmPr869Cog&s=10"
+                alt="GREIN" loading="lazy"><span class="tool-name">GREIN</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- View All Tools Toggle -->
+      <div class="view-all-tools-wrap fade-in">
+        <button class="btn btn-secondary view-all-btn" id="viewAllToolsBtn" aria-expanded="false"
+          aria-controls="toolsAllPanel">
+          <i class="fa-solid fa-grid-2" aria-hidden="true"></i> View All 30+ Tools <i
+            class="fa-solid fa-chevron-down view-all-chevron" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="tools-all-panel" id="toolsAllPanel" hidden>
+        <div class="tools-panel-category">
+          <h4><i class="fa-solid fa-database"></i> Databases</h4>
+          <div class="tools-cat-grid">
+            <div class="tools-cat-item">NCBI</div>
+            <div class="tools-cat-item">UniProt</div>
+            <div class="tools-cat-item">PDB</div>
+            <div class="tools-cat-item">PubChem</div>
+            <div class="tools-cat-item">Zinc Database</div>
+            <div class="tools-cat-item">GeneCards</div>
+            <div class="tools-cat-item">GREIN</div>
+          </div>
+        </div>
+        <div class="tools-panel-category">
+          <h4><i class="fa-solid fa-pills"></i> Drug Design &amp; Docking</h4>
+          <div class="tools-cat-grid">
+            <div class="tools-cat-item">AlphaFold</div>
+            <div class="tools-cat-item">Swiss Drug Design</div>
+            <div class="tools-cat-item">Biovia Discover Studio</div>
+            <div class="tools-cat-item">AutoDock Vina</div>
+            <div class="tools-cat-item">SwissDock</div>
+          </div>
+        </div>
+        <div class="tools-panel-category">
+          <h4><i class="fa-solid fa-vial"></i> ADMET &amp; Toxicity</h4>
+          <div class="tools-cat-grid">
+            <div class="tools-cat-item">AdmetLab 3.0</div>
+            <div class="tools-cat-item">Protox 3.0</div>
+            <div class="tools-cat-item">SwissADME</div>
+          </div>
+        </div>
+        <div class="tools-panel-category">
+          <h4><i class="fa-solid fa-diagram-project"></i> Network &amp; Phytomedicine</h4>
+          <div class="tools-cat-grid">
+            <div class="tools-cat-item">Venny 2.0</div>
+            <div class="tools-cat-item">ShinyGO</div>
+            <div class="tools-cat-item">IMPPAT 2.0</div>
+            <div class="tools-cat-item">Dr. Duke's DB</div>
+            <div class="tools-cat-item">Cytoscape</div>
+            <div class="tools-cat-item">STRING</div>
+            <div class="tools-cat-item">SwissTargetPrediction</div>
+          </div>
+        </div>
+        <div class="tools-panel-category">
+          <h4><i class="fa-solid fa-dna"></i> Cancer Genomics</h4>
+          <div class="tools-cat-grid">
+            <div class="tools-cat-item">cBioPortal</div>
+            <div class="tools-cat-item">Kaplan-Meier Plotter</div>
+            <div class="tools-cat-item">Human Protein Atlas</div>
+            <div class="tools-cat-item">GEPIA 2</div>
+            <div class="tools-cat-item">UALCAN</div>
+            <div class="tools-cat-item">GREIN</div>
+          </div>
+        </div>
+        <div class="tools-panel-category">
+          <h4><i class="fa-solid fa-feather-pointed"></i> Manuscript &amp; AI Writing</h4>
+          <div class="tools-cat-grid">
+            <div class="tools-cat-item">Zotero</div>
+            <div class="tools-cat-item">SciSpace</div>
+            <div class="tools-cat-item">QuillBot</div>
+            <div class="tools-cat-item">Grammarly</div>
+            <div class="tools-cat-item">Turnitin</div>
+            <div class="tools-cat-item">Mendeley</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ INSTRUCTORS ============ -->
+  <section class="instructors" id="instructors">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title fade-in">Meet the Instructors</h2>
+        <p class="section-desc fade-in">These instructors bring research leadership, curriculum design, and hands-on
+          mentorship to help interns launch real scientific projects.</p>
+      </div>
+
+      <div class="instructor-grid">
+        <article class="instructor-card fade-in">
+          <div class="card-hero">
+            <img src="image/Hridoy Ahmed.jpg" alt="Hridoy Ahmed">
+            <span class="card-badge">Founder</span>
+          </div>
+          <div class="card-info">
+            <h3>Hridoy Ahmed</h3>
+            <p class="role">Founder and Chief Instructor, BioPC</p>
+            <p class="subrole">Genetics Engineering and Biotechnology, University of Chittagong</p>
+            <div class="socials">
+              <a href="https://scholar.google.com/citations?user=UavZgJMAAAAJ&hl=en"
+                aria-label="Google Scholar profile of Hridoy Ahmed" class="social-link" target="_blank"
+                rel="noopener noreferrer">
+                <i class="fa-brands fa-google-scholar"></i>
+              </a>
+              <a href="https://www.researchgate.net/profile/Md-Hridoy-Ahmed"
+                aria-label="ResearchGate profile of Hridoy Ahmed" class="social-link" target="_blank"
+                rel="noopener noreferrer">
+                <i class="fa-brands fa-researchgate"></i>
+              </a>
+              <a href="https://ahmedhridoy.com/" aria-label="Personal website of Hridoy Ahmed" class="social-link"
+                target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-globe"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="instructor-card fade-in">
+          <div class="card-hero">
+            <img src="image/Md. Mustak khan.png" alt="Md. Mustak Khan">
+            <span class="card-badge">Program Lead</span>
+          </div>
+          <div class="card-info">
+            <h3>Md. Mustak Khan</h3>
+            <p class="role">Internship Program Lead and Instructor, BioPC</p>
+            <p class="subrole">Biochemistry and Molecular Biology, University of Chittagong</p>
+            <div class="socials">
+              <a href="https://scholar.google.com/citations?user=zZUhNasAAAAJ&hl=en&oi=ao"
+                aria-label="Google Scholar profile of Md. Mustak Khan" class="social-link" target="_blank"
+                rel="noopener noreferrer">
+                <i class="fa-brands fa-google-scholar"></i>
+              </a>
+              <a href="https://www.researchgate.net/profile/Md-Khan-420"
+                aria-label="ResearchGate profile of Md. Mustak Khan" class="social-link" target="_blank"
+                rel="noopener noreferrer">
+                <i class="fa-brands fa-researchgate"></i>
+              </a>
+              <a href="https://md-mustak-khan.github.io/" aria-label="Personal website of Md. Mustak Khan"
+                class="social-link" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-globe"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="instructor-card fade-in">
+          <div class="card-hero">
+            <img src="image/Md. Foyzur Rahman.jpg" alt="Md. Foyzur Rahman">
+            <span class="card-badge">Instructor</span>
+          </div>
+          <div class="card-info">
+            <h3>Md. Foyzur Rahman</h3>
+            <p class="role">Instructor, BioPC</p>
+            <p class="subrole">Pharmacy, Dhaka International University</p>
+            <div class="socials">
+              <a href="https://scholar.google.com/citations?user=mdfoyzur"
+                aria-label="Google Scholar profile of Md. Foyzur Rahman" class="social-link" target="_blank"
+                rel="noopener noreferrer">
+                <i class="fa-brands fa-google-scholar"></i>
+              </a>
+              <a href="https://www.researchgate.net/profile/Mdfoyzur-Rahman-2"
+                aria-label="ResearchGate profile of Md. Foyzur Rahman" class="social-link" target="_blank"
+                rel="noopener noreferrer">
+                <i class="fa-brands fa-researchgate"></i>
+              </a>
+              <a href="https://mdfoyzur08.github.io/Md-Foyzur-Rahman/"
+                aria-label="Personal website of Md. Foyzur Rahman" class="social-link" target="_blank"
+                rel="noopener noreferrer">
+                <i class="fa-solid fa-globe"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="instructor-card fade-in">
+          <div class="card-hero">
+            <div class="image-placeholder">MH</div>
+            <span class="card-badge">Instructor</span>
+          </div>
+          <div class="card-info">
+            <h3>Md. Muhareb Hossain</h3>
+            <p class="role">Instructor, BioPC</p>
+            <p class="subrole">Pharmacy, State University of Bangladesh</p>
+            <div class="socials">
+              <a href="#" aria-label="Google Scholar" class="social-link">
+                <i class="fa-brands fa-google-scholar"></i>
+              </a>
+              <a href="#" aria-label="ResearchGate" class="social-link">
+                <i class="fa-brands fa-researchgate"></i>
+              </a>
+              <a href="#" aria-label="Website" class="social-link">
+                <i class="fa-solid fa-globe"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- ============ TEACHING ASSISTANTS ============ -->
+      <h2 class="section-title ta-title fade-in">Meet the Teaching Assistants</h2>
+      <div class="ta-grid">
+        <div class="ta-card fade-in">
+          <img src="image/TA/Md. Sakibul Hasan.jpg" alt="Md. Sakibul Hasan" class="ta-avatar">
+          <h4>Md. Sakibul Hasan</h4>
+          <p class="role">Teaching Assistant, BioPC</p>
+          <p class="bio">Pharmacy, Manarat International University.</p>
+          <div class="socials"><a href="https://www.linkedin.com/in/mdsakibulhasan123" class="social-btn linkedin"
+              target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></div>
+        </div>
+        <div class="ta-card fade-in">
+          <img src="image/TA/Anamica Das Urmi.jpg" alt="Anamica Das Urmi" class="ta-avatar">
+          <h4>Anamica Das Urmi</h4>
+          <p class="role">Teaching Assistant, BioPC</p>
+          <p class="bio">Pharmacy, International Islamic University Chittagong.</p>
+          <div class="socials"><a href="https://www.linkedin.com/in/anamica-das-urmi" class="social-btn linkedin"
+              target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></div>
+        </div>
+        <div class="ta-card fade-in">
+          <img src="image/TA/Nishat Tasnim Subah.jpg" alt="Nishat Tasnim Subah" class="ta-avatar">
+          <h4>Nishat Tasnim Subah</h4>
+          <p class="role">Teaching Assistant, BioPC</p>
+          <p class="bio">Pharmacy, Manarat International University.</p>
+          <div class="socials"><a href="https://www.linkedin.com/in/nishat-tasnim-44b244386" class="social-btn linkedin"
+              target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></div>
+        </div>
+        <div class="ta-card fade-in">
+          <!-- Consistent initials-based avatar for Tahia until photo is provided -->
+          <div class="ta-avatar ta-avatar-initials" style="--av-hue1: 252; --av-hue2: 186;"
+            aria-label="Avatar for Tahia Tanveen Dihan">TD</div>
+          <h4>Tahia Tanveen Dihan</h4>
+          <p class="role">Teaching Assistant, BioPC</p>
+          <p class="bio">Microbiology, BRAC University.</p>
+          <div class="socials"><a href="https://www.linkedin.com/in/tahia-tanveen-8117a82b2" class="social-btn linkedin"
+              target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <h2 class="section-title fade-in">What Past Participants Say</h2>
+      <p class="section-desc fade-in">Hear firsthand experiences from alumni of Bioinformatics Research Internship 3.0
+        (BRI 3.0) who mastered real computational pipelines.</p>
+      <div class="testimonial-grid">
+        <!-- CADD Focus -->
+        <div class="testimonial-card fade-in">
+          <span class="testimonial-topic-tag"><i class="fa-solid fa-capsules"></i> CADD &amp; Docking</span>
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="quote">"Before BRI 3.0, molecular docking seemed overwhelming. The hands-on training on AlphaFold
+            structure prediction, AutoDock Vina, and ADMET profiling gave me the exact workflow to screen candidate
+            compounds and interpret binding affinities with complete confidence."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"><i class="fa-solid fa-user-doctor"></i></div>
+            <div><strong>Mahfuja Akter</strong><span>BRI 3.0 Alumna • Drug Design Track</span></div>
+          </div>
+        </div>
+
+        <!-- CAVD Focus -->
+        <div class="testimonial-card fade-in">
+          <span class="testimonial-topic-tag"><i class="fa-solid fa-shield-virus"></i> Vaccine Design (CAVD)</span>
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="quote">"The Computer-Aided Vaccine Design module was exceptional. We went from B-cell and T-cell
+            epitope mapping on IEDB to designing multi-epitope vaccine constructs, running C-ImmSim immune simulations,
+            and conducting receptor docking step-by-step."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"><i class="fa-solid fa-microscope"></i></div>
+            <div><strong>Eran Hosen</strong><span>BRI 3.0 Alumnus • CAVD Track</span></div>
+          </div>
+        </div>
+
+        <!-- Research Paper Writing Focus -->
+        <div class="testimonial-card fade-in">
+          <span class="testimonial-topic-tag"><i class="fa-solid fa-feather-pointed"></i> Manuscript Writing</span>
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="quote">"The manuscript writing project was the true game-changer. Learning how to structure IMRaD
+            sections, present computational docking results effectively, select indexed journals, and manage citations
+            in Zotero directly turned our project into a publication-ready draft."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div><strong>Samrin Akter</strong><span>BRI 3.0 Alumna • Publication Track</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BEFORE / AFTER ============ -->
+  <section class="before-after">
+    <div class="container">
+      <h2 class="section-title fade-in">Your Transformation Journey</h2>
+      <p class="section-desc fade-in">See the concrete difference BRI 4.0 makes for your research career.</p>
+      <div class="ba-grid fade-in">
+        <div class="ba-card before">
+          <div class="ba-label before-label"><i class="fa-solid fa-clock" aria-hidden="true"></i> Before BRI 4.0</div>
+          <ul class="ba-list">
+            <li><i class="fa-solid fa-xmark" aria-hidden="true"></i> No bioinformatics experience</li>
+            <li><i class="fa-solid fa-xmark" aria-hidden="true"></i> Theory-only academic background</li>
+            <li><i class="fa-solid fa-xmark" aria-hidden="true"></i> No research portfolio</li>
+            <li><i class="fa-solid fa-xmark" aria-hidden="true"></i> No access to research community</li>
+            <li><i class="fa-solid fa-xmark" aria-hidden="true"></i> Unclear path after graduation</li>
+            <li><i class="fa-solid fa-xmark" aria-hidden="true"></i> Never used molecular docking tools</li>
+          </ul>
+        </div>
+        <div class="ba-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right-long"></i></div>
+        <div class="ba-card after">
+          <div class="ba-label after-label"><i class="fa-solid fa-star" aria-hidden="true"></i> After BRI 4.0</div>
+          <ul class="ba-list">
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Runs CADD, CAVD &amp; cancer bioinformatics
+              pipelines independently</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> 7 real deliverables across 7 modules</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Manuscript-ready research output</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Access to BioPC research &amp; mentorship network
+            </li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Eligible for TA, RA &amp; Trainer pathways</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Verified certificate from BioPC Academy</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <h2 class="section-title fade-in">Frequently Asked Questions</h2>
+
+      <!-- FAQ Search -->
+      <div class="faq-search-wrap fade-in">
+        <i class="fa-solid fa-search faq-search-icon" aria-hidden="true"></i>
+        <input type="search" id="faqSearch" class="faq-search" placeholder="Search questions…"
+          aria-label="Search FAQ questions">
+      </div>
+
+      <!-- Schedule & Logistics -->
+      <div class="faq-category-label fade-in"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i> Schedule
+        &amp; Logistics</div>
+      <div class="accordion" id="accordion">
+        <div class="accordion-item">
+          <button class="accordion-header">When is the registration deadline? <span class="chevron">⌄</span></button>
+          <div class="accordion-body">
+            <p>Registration closes on 20 September 2026. The cohort starts within 7 days after the deadline, so your
+              seat must be confirmed before then.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">What is the program schedule and duration? <span
+              class="chevron">⌄</span></button>
+          <div class="accordion-body">
+            <p>The internship runs for 4 months with live online sessions on Friday and Saturday from 9:30 PM to 11:00
+              PM (Bangladesh time), so you can easily attend alongside your studies or job.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">How many seats are available? <span class="chevron">⌄</span></button>
+          <div class="accordion-body">
+            <p>The cohort is limited to 80 seats and is filled on a first-come, first-served basis. Early registration
+              is strongly recommended.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">Will the sessions be recorded? <span class="chevron">⌄</span></button>
+          <div class="accordion-body">
+            <p>Yes. Every live session is recorded and shared with all participants for lifetime access.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fees & Payment -->
+      <div class="faq-category-label fade-in"><i class="fa-solid fa-bangladeshi-taka-sign" aria-hidden="true"></i> Fees
+        &amp; Payment</div>
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-header">What are the course fees? <span class="chevron">⌄</span></button>
+          <div class="accordion-body">
+            <p>Students pay a discounted rate of ৳5,000 (50% off the standard ৳10,000), while professional or working
+              participants pay ৳10,000.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">How do I register and pay? <span class="chevron">⌄</span></button>
+          <div class="accordion-body">
+            <p>Go to the "Complete Your Registration" section, send the registration fee via <strong>"Send Money" (সেন্ড
+                মানি)</strong> to one of our personal bKash, Nagad, or Rocket numbers listed there, then fill in the
+              form with your Transaction ID and a transaction screenshot. Our team verifies the payment and confirms
+              your seat by email.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">What is the refund/cancellation policy? <span
+              class="chevron">⌄</span></button>
+          <div class="accordion-body">
+            <p>Refund requests are accepted only up to 3 days before the cohort start date; after that, fees are
+              non-refundable. Contact biopc.research@gmail.com for the specific terms.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content & Skills -->
+      <div class="faq-category-label fade-in"><i class="fa-solid fa-book-open" aria-hidden="true"></i> Content &amp;
+        Skills</div>
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-header">Who can join this internship? <span class="chevron">⌄</span></button>
+          <div class="accordion-body">
+            <p>Anyone with an interest in bioinformatics and life sciences: undergraduate, Master's, and PhD students
+              from any life-science background (Biochemistry, Molecular Biology, Biotechnology, Pharmacy, Genetic
+              Engineering, Microbiology, and more), early-career researchers, and complete beginners.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">Do I need prior bioinformatics or coding experience? <span
+              class="chevron">⌄</span></button>
+          <div class="accordion-body">
+            <p>No. A basic biology background and curiosity are enough. The program starts from the fundamentals and
+              builds up to full research workflows step by step.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">Is any coding or programming involved? <span
+              class="chevron">⌄</span></button>
+          <div class="accordion-body">
+            <p>No. This internship is 100% tool-, database-, and software-based. You will not write a single line of
+              code. Everything is done through ready-to-use web databases and user-friendly software.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">What tools, databases, and software will I use? <span
+              class="chevron">⌄</span></button>
+          <div class="accordion-body">
+            <p>You will work with widely used — and mostly free — web databases and software: NCBI, UniProt, PDB,
+              AlphaFold, PubChem, ZINC, Swiss Drug Design, ADMETlab, ProTox, BIOVIA Discovery Studio, AutoDock Vina,
+              SwissDock, STRING, Cytoscape, GeneCards, GEPIA2, UALCAN, GREIN, C-ImmSim, Gaussian, and more. The complete
+              list with step-by-step access guides is shared before the internship begins.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">Do I need a powerful computer or any special equipment? <span
+              class="chevron">⌄</span></button>
+          <div class="accordion-body">
+            <p>No. Most of the tools run directly in your web browser. A normal laptop or desktop with a stable internet
+              connection is all you need.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">What should I prepare before starting? <span
+              class="chevron">⌄</span></button>
+          <div class="accordion-body">
+            <p>Just a computer, a stable internet connection, and your interest. Before the internship begins, you will
+              receive a setup guide explaining how to access every database and software tool used in the course — most
+              of them are free and run directly in the browser.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">What kind of projects and deliverables will I complete? <span
+              class="chevron">⌄</span></button>
+          <div class="accordion-body">
+            <p>Each module ends with a hands-on deliverable — for example, an annotated sequence/database report, a
+              docking and ADMET report, a compound–disease–target network diagram, a DFT analysis report, a
+              multi-epitope vaccine workflow report, a cancer biomarker analysis report, and a draft manuscript section.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Outcomes & Certificates -->
+      <div class="faq-category-label fade-in"><i class="fa-solid fa-certificate" aria-hidden="true"></i> Outcomes &amp;
+        Certificates</div>
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-header">Is the certificate verifiable? <span class="chevron">⌄</span></button>
+          <div class="accordion-body">
+            <p>Yes. Every participant who completes the internship receives a verified certificate of completion from
+              BioPC Academy.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">Are there opportunities for TA or RA roles? <span
+              class="chevron">⌄</span></button>
+          <div class="accordion-body">
+            <p>Yes. High-performing participants can be selected for Teaching Assistant (TA) and Research Assistant (RA)
+              pathways, and consistent excellence can lead to permanent membership and involvement in real research
+              projects and publications.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ CTA -->
+      <div class="faq-cta fade-in">
+        <p>Still have questions?</p>
+        <div class="faq-cta-btns">
+          <a href="mailto:biopc.research@gmail.com" class="btn btn-secondary"><i class="fa-solid fa-envelope"
+              aria-hidden="true"></i> Email Us</a>
+          <a href="https://wa.me/8801308584945" class="btn btn-primary" target="_blank" rel="noopener noreferrer"><i
+              class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp Us</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ REGISTRATION ============ -->
+  <section class="register" id="register">
+    <div class="container">
+      <h2 class="section-title fade-in">Complete Your Registration</h2>
+
+      <!-- 3-Step Progress -->
+      <div class="reg-steps fade-in" aria-label="Registration steps">
+        <div class="reg-step active">
+          <span class="step-num">1</span>
+          <span class="step-label">Send Fee</span>
+        </div>
+        <div class="reg-step-line"></div>
+        <div class="reg-step">
+          <span class="step-num">2</span>
+          <span class="step-label">Fill Form</span>
+        </div>
+        <div class="reg-step-line"></div>
+        <div class="reg-step">
+          <span class="step-num">3</span>
+          <span class="step-label">Get Confirmed</span>
+        </div>
+      </div>
+
+      <div class="payment-box fade-in">
+        <h3>How to Send Fee (Personal Accounts)</h3>
+
+        <div class="payment-alert">
+          <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+          <div><strong>Important Note:</strong> These are <strong>Personal Accounts</strong>. Please select the
+            <strong>"Send Money" (সেন্ড মানি)</strong> option in your bKash, Nagad, or Rocket app. Do <u>not</u> choose
+            "Make Payment" or "Merchant Pay".
+          </div>
+        </div>
+
+        <div class="payment-instructions">
+          <ol>
+            <li>
+              <strong>bKash Personal (Send Money)</strong><br>
+              <span>01855310554</span><br>
+              <em>Use "Send Money" to this personal bKash number, then save your Transaction ID.</em>
+            </li>
+            <li>
+              <strong>bKash / Nagad / Rocket Personal (Send Money)</strong><br>
+              <span>01622488559</span><br>
+              <em>Use "Send Money" via bKash, Nagad, or Rocket to this personal number, then save your Transaction
+                ID.</em>
+            </li>
+          </ol>
+          <p class="payment-note">After sending money, enter your <strong>Transaction ID (TrxID)</strong> and upload a
+            <strong>screenshot of the transaction confirmation</strong> below. We verify and confirm your seat via
+            email.
+          </p>
+        </div>
+      </div>
+
+      <!--
+      GOOGLE APPS SCRIPT SETUP:
+      1. Open google-apps-script.gs from this folder
+      2. Follow the deployment instructions at the top of that file
+      3. After deploying, replace 'YOUR_GAS_ENDPOINT_URL' in script.js with your Web App URL
+    -->
+      <form class="reg-form" id="regForm" novalidate>
+        <!-- Full Name (Full width) -->
+        <div class="form-group form-col-full">
+          <label for="fullName" class="form-label">Full Name <span class="required-star">*</span></label>
+          <input type="text" id="fullName" name="fullName" required placeholder="Enter your full legal name"
+            autocomplete="name">
+          <span class="field-error" id="fullName-error" aria-live="polite"></span>
+        </div>
+
+        <!-- Email & Phone (2 columns) -->
+        <div class="form-group">
+          <label for="email" class="form-label">Email Address <span class="required-star">*</span></label>
+          <input type="email" id="email" name="email" required placeholder="e.g. yourname@gmail.com"
+            autocomplete="email">
+          <span class="field-error" id="email-error" aria-live="polite"></span>
+        </div>
+        <div class="form-group">
+          <label for="phone" class="form-label">Phone Number <span class="required-star">*</span></label>
+          <input type="tel" id="phone" name="phone" required placeholder="e.g. 017xxxxxxxx" autocomplete="tel">
+          <span class="field-error" id="phone-error" aria-live="polite"></span>
+        </div>
+
+        <!-- WhatsApp & University (2 columns) -->
+        <div class="form-group">
+          <label for="whatsapp" class="form-label">WhatsApp Number</label>
+          <input type="tel" id="whatsapp" name="whatsapp" placeholder="e.g. 017xxxxxxxx" autocomplete="tel">
+          <span class="field-error" id="whatsapp-error" aria-live="polite"></span>
+        </div>
+        <div class="form-group">
+          <label for="university" class="form-label">University / Institution <span
+              class="required-star">*</span></label>
+          <input type="text" id="university" name="university" required placeholder="e.g. University of Chittagong"
+            autocomplete="organization">
+          <span class="field-error" id="university-error" aria-live="polite"></span>
+        </div>
+
+        <!-- Department & Academic Level (2 columns) -->
+        <div class="form-group">
+          <label for="department" class="form-label">Department / Subject</label>
+          <input type="text" id="department" name="department"
+            placeholder="e.g. Biochemistry / Biotechnology / Pharmacy">
+          <span class="field-error" id="department-error" aria-live="polite"></span>
+        </div>
+        <div class="form-group">
+          <label for="academicLevel" class="form-label">Academic Level <span class="required-star">*</span></label>
+          <select id="academicLevel" name="academicLevel" required>
+            <option value="">Select your academic level…</option>
+            <option value="undergraduate">Undergraduate</option>
+            <option value="masters">Master's</option>
+            <option value="phd">PhD</option>
+            <option value="postdoc">Postdoc / Faculty</option>
+            <option value="researcher">Researcher / Professional</option>
+            <option value="other">Other</option>
+          </select>
+          <span class="field-error" id="academicLevel-error" aria-live="polite"></span>
+        </div>
+
+        <!-- Skill Level & Payment Method (2 columns) -->
+        <div class="form-group">
+          <label for="skillLevel" class="form-label">Skill Level</label>
+          <select id="skillLevel" name="skillLevel">
+            <option value="">Select your background…</option>
+            <option value="beginner">Beginner (New to bioinformatics)</option>
+            <option value="intermediate">Intermediate (Basic tool knowledge)</option>
+            <option value="advanced">Advanced (Experienced user)</option>
+          </select>
+          <span class="field-error" id="skillLevel-error" aria-live="polite"></span>
+        </div>
+        <div class="form-group">
+          <label for="paymentMethod" class="form-label">Payment Method (Send Money) <span
+              class="required-star">*</span></label>
+          <select id="paymentMethod" name="paymentMethod" required>
+            <option value="">Select payment method…</option>
+            <option value="bkash">bKash Personal (Send Money)</option>
+            <option value="nagad">Nagad Personal (Send Money)</option>
+            <option value="rocket">Rocket Personal (Send Money)</option>
+          </select>
+          <span class="field-error" id="paymentMethod-error" aria-live="polite"></span>
+        </div>
+
+        <!-- Coupon / Referral Code (Optional - Full width) -->
+        <div class="form-group form-col-full coupon-wrap">
+          <label for="couponCode" class="form-label">Coupon / Referral Code <span class="optional-text">(Optional —
+              Single-use)</span></label>
+          <div class="coupon-input-group">
+            <div class="coupon-input-field">
+              <i class="fa-solid fa-ticket coupon-icon" aria-hidden="true"></i>
+              <input type="text" id="couponCode" name="couponCode"
+                placeholder="Enter coupon/referral code (e.g. BBO3-XXXXXX or BPC-CORE-XXXXXX)" autocomplete="off"
+                spellcheck="false">
+            </div>
+            <button type="button" class="btn-coupon-apply" id="applyCouponBtn">Apply Code</button>
+          </div>
+          <div class="coupon-feedback" id="couponFeedback" hidden aria-live="polite"></div>
+        </div>
+
+        <!-- Transaction ID (Full width) -->
+        <div class="form-group form-col-full">
+          <label for="transactionId" class="form-label">Transaction ID (TrxID) <span
+              class="required-star">*</span></label>
+          <input type="text" id="transactionId" name="transactionId" required
+            placeholder="Enter the 10-character TrxID from your Send Money confirmation SMS">
+          <span class="field-error" id="transactionId-error" aria-live="polite"></span>
+        </div>
+
+        <!-- Styled File Upload (Full width) -->
+        <div class="form-group form-col-full">
+          <label class="form-label">Send Money Screenshot <span class="required-star">*</span></label>
+          <div class="file-drop-zone" id="fileDropZone" tabindex="0" role="button"
+            aria-label="Upload payment screenshot">
+            <i class="fa-solid fa-cloud-arrow-up" aria-hidden="true"></i>
+            <p>Drag &amp; drop screenshot here, or <span class="file-browse">browse files</span></p>
+            <span class="file-accepted">JPG, PNG, WEBP accepted (Max 5MB)</span>
+            <span class="file-selected" id="fileSelectedName" hidden></span>
+            <input type="file" id="screenshot" name="screenshot" accept="image/*" required class="file-hidden"
+              tabindex="-1">
+          </div>
+          <span class="field-error" id="screenshot-error" aria-live="polite"></span>
+        </div>
+
+        <!-- Checkbox (Full width) -->
+        <div class="form-group form-col-full checkbox-group">
+          <label class="checkbox-label" for="terms">
+            <input type="checkbox" id="terms" name="terms" required>
+            <span>I confirm the information is accurate and I agree to receive course-related communications from BioPC
+              Academy.</span>
+          </label>
+        </div>
+
+        <!-- Submit & Notifications (Full width) -->
+        <div class="form-group form-col-full">
+          <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+            <span id="submitText">Complete My Registration <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"
+                aria-hidden="true"></i></span>
+            <span id="submitSpinner" class="submit-spinner" hidden aria-hidden="true"><i
+                class="fa-solid fa-circle-notch fa-spin"></i></span>
+          </button>
+          <p class="form-success" id="formSuccess" hidden role="alert">✓ Registration submitted successfully! We will
+            verify your payment and email confirmation within 24 hours.</p>
+          <p class="form-error-msg" id="formErrorMsg" hidden role="alert">Something went wrong. Please check your inputs
+            or email us directly at biopc.research@gmail.com</p>
+          <p class="form-help">Questions or payment assistance? Email <a
+              href="mailto:biopc.research@gmail.com">biopc.research@gmail.com</a> or WhatsApp <a
+              href="https://wa.me/8801308584945" target="_blank" rel="noopener noreferrer">+880 1308-584945</a></p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT SECTION ============ -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-card fade-in">
+        <div class="contact-copy">
+          <p class="contact-label">Need help?</p>
+          <h2 class="section-title contact-title">Let's talk about your next step</h2>
+          <p class="section-desc contact-desc">If you have questions about the internship, registration, or schedule,
+            reach out and we'll help you get started.</p>
+        </div>
+        <div class="contact-details">
+          <a href="mailto:biopc.research@gmail.com" class="contact-item">
+            <span class="contact-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+            <div>
+              <strong>Email</strong>
+              <p>biopc.research@gmail.com</p>
+            </div>
+          </a>
+          <a href="https://wa.me/8801308584945" target="_blank" rel="noopener noreferrer" class="contact-item">
+            <span class="contact-icon whatsapp-icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+            <div>
+              <strong>WhatsApp</strong>
+              <p>+880 1308-584945</p>
+            </div>
+          </a>
+          <a href="https://www.facebook.com/BioPcLab/" target="_blank" rel="noopener noreferrer" class="contact-item">
+            <span class="contact-icon facebook-icon"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></span>
+            <div>
+              <strong>Facebook</strong>
+              <p>BioPC Lab</p>
+            </div>
+          </a>
+          <a href="#register" class="contact-item">
+            <span class="contact-icon register-icon"><i class="fa-solid fa-user-plus" aria-hidden="true"></i></span>
+            <div>
+              <strong>Register</strong>
+              <p>Reserve your seat today</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="logo footer-logo">
+          <span class="brand-badge footer-badge">
+            <img src="image/Logo.png" alt="BioPC Academy logo" class="brand-logo">
+          </span>
+          <span>BioPC <span>Academy</span></span>
+        </div>
+        <p>Research-driven training for the next generation of computational biologists.</p>
+        <!-- Newsletter Signup -->
+        <div class="footer-newsletter">
+          <h4>Stay Updated</h4>
+          <form class="newsletter-form" id="newsletterForm" novalidate>
+            <input type="email" id="newsletterEmail" placeholder="Your email address" aria-label="Newsletter email"
+              required>
+            <button type="submit" aria-label="Subscribe to newsletter"><i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+          <p class="newsletter-success" id="newsletterSuccess" hidden>✓ You're subscribed!</p>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="#benefits">Benefits</a>
+        <a href="#curriculum">Curriculum</a>
+        <a href="#resources">Resources</a>
+        <a href="#instructors">Instructors</a>
+        <a href="#faq">FAQ</a>
+        <a href="#register">Register</a>
+      </div>
+
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <a href="https://www.facebook.com/BioPcLab/" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-facebook-f" aria-hidden="true"></i> Facebook
+        </a>
+        <a href="https://www.linkedin.com/company/biopc-a-bioinformatics-lab-of-research-and-training/" target="_blank"
+          rel="noopener noreferrer">
+          <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i> LinkedIn
+        </a>
+        <a href="https://www.youtube.com/@BioPC-BioinformaticsLab" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-youtube" aria-hidden="true"></i> YouTube
+        </a>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <a href="mailto:biopc.research@gmail.com">
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i> biopc.research@gmail.com
+        </a>
+        <a href="https://wa.me/8801308584945" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> +880 1308-584945
+        </a>
+      </div>
+    </div>
+    <p class="copyright">© 2026 <a href="https://biopc.org" target="_blank" rel="noopener noreferrer">BioPC
+        Academy</a>. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

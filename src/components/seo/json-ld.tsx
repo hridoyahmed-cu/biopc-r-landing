@@ -26,7 +26,7 @@ export function JsonLd() {
         price: siteConfig.price.amount,
         priceCurrency: siteConfig.price.currency,
         availability: 'https://schema.org/InStock',
-        url: `${siteUrl}#register`,
+        url: `${siteUrl}/r-programming#register`,
       },
       hasCourseInstance: {
         '@type': 'CourseInstance',
