@@ -45,12 +45,22 @@ jobs:
           set -euo pipefail
           SRC=.internship-src
 
-          # The <base> tag is what makes the site's relative asset paths resolve
-          # when it is served from /internship/ rather than a domain root.
-          # Without it every stylesheet, script and image 404s, so refuse to
-          # publish rather than deploy a page that renders as unstyled text.
+          # The source deliberately carries no <base> tag: that repo also
+          # publishes to GitHub Pages under a different path, where a
+          # hard-coded /internship/ would break every asset there. So the tag
+          # is injected here, for this deployment only. Without it the site's
+          # relative paths resolve to the domain root and every stylesheet,
+          # script and image 404s.
+          if grep -q '<base href="/internship/">' "$SRC/index.html"; then
+            echo "Source already carries the base tag; leaving it alone."
+          else
+            sed -i '/<meta name="viewport"/a\  <base href="/internship/">' "$SRC/index.html"
+            echo "Injected the base tag."
+          fi
+
+          # Belt and braces: never publish the page without it.
           if ! grep -q '<base href="/internship/">' "$SRC/index.html"; then
-            echo "::error file=index.html::Missing <base href=\"/internship/\">. Refusing to sync - the deployed page would lose every asset."
+            echo "::error file=index.html::Base tag missing after injection. Refusing to sync - the deployed page would lose every asset."
             exit 1
           fi
 
