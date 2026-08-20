@@ -7,6 +7,12 @@ its own repo, so it is vendored here as a plain copy at `public/internship/`.
 Nothing links the two — a commit in the internship repo reaches the website only
 when the files are copied across and this repo is pushed.
 
+`public/internship/` is **not** scratch space. Next.js serves everything under
+`public/` at the site root, so `public/internship/styles.css` *is*
+`courses.biopc.org/internship/styles.css`. Deleting it takes the internship site
+off the domain. Do not hand-edit it either: the next sync overwrites it without
+warning, because the fork is the source of truth.
+
 There are two hops:
 
 ```
@@ -14,7 +20,7 @@ md-mustak-khan/Bioinformatics_Research_Internship   (upstream, someone else's)
         |  hop 1: git merge
         v
 hridoyahmed-cu/Bioinformatics_Research_Internship   (your fork)
-        |  hop 2: copy files
+        |  hop 2: copy files + inject the base tag
         v
 biopc-r-landing/public/internship/                  (this repo -> Vercel -> live)
 ```
@@ -23,18 +29,34 @@ Hop 2 is automated by `.github/workflows/sync-internship.yml` (daily + manual).
 Hop 1 is always manual, on purpose: upstream is a third party, and their commits
 should pass through a repo you control before reaching your production domain.
 
-## Two changes that must never be lost
+## The source is published in two places
 
-The fork carries two commits that upstream does not have. They are what make the
-site work at a subpath instead of a domain root:
+The fork is not only a source — it also builds to **GitHub Pages** at
+<https://hridoyahmed-cu.github.io/Bioinformatics_Research_Internship/>.
 
-| Change | Why it matters |
+That is why anything path-specific to this deployment must **not** be committed
+to the fork. The two sites are served from different paths:
+
+| Deployment | Served from | Needs `<base>`? |
+| --- | --- | --- |
+| `courses.biopc.org/internship` | `/internship/` | **yes** |
+| GitHub Pages | `/Bioinformatics_Research_Internship/` | **no** |
+
+> **Do not add `<base href="/internship/">` to the fork.** It was there once and
+> it silently broke the Pages site: every relative asset resolved to
+> `/internship/...`, which does not exist there, so the page rendered unstyled.
+> The tag is injected during the sync instead — see hop 2.
+
+## What the fork *does* carry
+
+One deployment-related change lives in the fork, and it is safe in both places:
+
+| Change | Why |
 | --- | --- |
-| `<base href="/internship/">` in `index.html` | Without it every relative path (`styles.css`, `script.js`, `image/...`) resolves to the site root and **404s**. The page renders as unstyled text. |
-| canonical / `og:url` / JSON-LD / footer pointed away from `biopc.site` | That domain does not resolve. A canonical aimed at it tells search engines to drop the page. |
+| canonical / `og:url` / JSON-LD / footer pointed away from `biopc.site` | That domain does not resolve. Both copies now name `courses.biopc.org/internship` as canonical, which correctly tells search engines your domain is the real home. |
 
-If a merge ever touches the `<head>` or the footer link, keep **your** version of
-those lines. Everything else takes upstream's.
+If a merge conflicts on those lines, keep **your** version. Everything else takes
+upstream's.
 
 ---
 
@@ -59,7 +81,7 @@ git status                                  # lists conflicted files
 ```
 
 Open each file and look for `<<<<<<<` markers. Keep upstream's content except in
-the two places above. To keep your whole version of one file:
+the SEO lines above. To keep your whole version of one file:
 
 ```bash
 git checkout --ours index.html
@@ -89,6 +111,15 @@ Copy only those four things. **Never copy `.git/` or `.github/`** — they would
 served publicly. The commands above cannot, which is why they name files rather
 than copying the folder wholesale.
 
+### Then inject the base tag — do not skip this
+
+```bash
+sed -i '/<meta name="viewport"/a\  <base href="/internship/">' public/internship/index.html
+```
+
+This edits the **copy**, never the fork. Without it, `/internship` loads with
+every stylesheet, script and image 404ing, and the page renders as raw text.
+
 ## Check before you publish
 
 ```bash
@@ -117,20 +148,38 @@ in roughly a minute.
 ```bash
 curl -s -o /dev/null -w "%{http_code}\n" https://courses.biopc.org/internship
 curl -s https://courses.biopc.org/internship | grep -o '<base href="[^"]*">'
+curl -s -o /dev/null -w "%{http_code}\n" https://courses.biopc.org/internship/styles.css
 ```
 
-Expect `200` and the base tag. Then open the page and check the styling loaded —
-an unstyled page is the signature of a missing base tag.
+Expect `200`, the base tag, and `200`. An unstyled page is the signature of a
+missing base tag.
 
 ---
 
 ## The shortcut
 
-Hop 2 and everything after it is exactly what the workflow does. Instead of
-running those commands, once hop 1 is pushed you can go to this repo on GitHub:
+Hop 2, the injection, the checks and the deploy are all exactly what the workflow
+does. Instead of running any of it, once hop 1 is pushed you can go to this repo
+on GitHub:
 
 **Actions** -> **Sync internship site** -> **Run workflow**
 
-It copies, checks, commits and pushes, and refuses to publish if the `<base>` tag
-is missing. It also runs itself daily at 02:00 UTC, so if you only do hop 1 and
-walk away, the website catches up on its own within a day.
+It copies, injects, verifies, commits and pushes, and refuses to publish if the
+`<base>` tag is missing afterwards. It also runs itself daily at 02:00 UTC, so if
+you only do hop 1 and walk away, the website catches up on its own within a day.
+
+### If a run fails
+
+A failed run means it *declined to publish something broken* — the site is
+untouched. Read the log under **Actions**; the guard prints exactly what was
+wrong. Fix it in the fork, push, and run the workflow again.
+
+## A note on pulling
+
+The workflow commits to this repo from GitHub's servers, so `main` can move
+without you. If a push is ever rejected with "the remote contains work you do not
+have", that is why:
+
+```bash
+git pull
+```
